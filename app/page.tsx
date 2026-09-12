@@ -2852,76 +2852,86 @@ export default function Home() {
       {/* CONTACT */}
       {/* ========================================================= */}
 
-      <section
-        id="contact"
-        className="scroll-mt-24 px-5 py-28 sm:px-8 lg:px-12"
+<section
+  id="contact"
+  className="scroll-mt-24 px-5 py-28 sm:px-8 lg:px-12"
+>
+  <div className="mx-auto max-w-[1380px]">
+    <Reveal>
+      <div
+        className={`section-line border-t pt-5 ${border}`}
       >
-        <div className="mx-auto max-w-[1380px]">
-          <Reveal>
-            <div
-              className={`section-line border-t pt-5 ${border}`}
-            >
-              <div
-                className={`text-[10px] font-bold tracking-[0.25em] ${muted}`}
-              >
-                07 / CONTACT
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal delay={100}>
-            <div className="py-20">
-              <div
-                className={`mb-7 text-[9px] font-semibold tracking-[0.2em] ${muted}`}
-              >
-                AVAILABLE FOR CREATIVE & DEVELOPMENT WORK
-              </div>
-
-              <h2 className="contact-title max-w-[1050px] text-[clamp(3rem,8vw,8rem)] font-bold leading-[0.87] tracking-[-0.075em]">
-                Let&apos;s build
-                <span className={`block ${muted}`}>
-                  something.
-                </span>
-              </h2>
-
-              <div className="mt-14 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-                <a
-                  href="mailto:aldiansyh421@gmail.com"
-                  className={`email-button ${
-                    darkMode ? "dark-email" : ""
-                  } group inline-flex w-fit items-center gap-3 rounded-full px-6 py-3.5 text-[10px] font-bold tracking-[0.15em] hover:-translate-y-1`}
-                >
-                  EMAIL
-
-                  <span className="transition-transform duration-200 group-hover:translate-x-1">
-                    <ArrowIcon />
-                  </span>
-                </a>
-
-                <a
-                  href="https://instagram.com/_di1.a_"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`group inline-flex w-fit items-center gap-3 rounded-full border px-6 py-3.5 text-[10px] font-bold tracking-[0.15em] backdrop-blur-xl transition-[background-color,border-color,transform] duration-200 hover:-translate-y-1 ${glass} ${glassHover}`}
-                >
-                  INSTAGRAM
-
-                  <span className="transition-transform duration-200 group-hover:translate-x-1">
-                    <ExternalIcon />
-                  </span>
-                </a>
-
-                <div
-                  className={`inline-flex w-fit items-center gap-3 rounded-full border px-6 py-3.5 text-[10px] font-bold tracking-[0.15em] backdrop-blur-xl ${glass}`}
-                >
-                  GITHUB — COMING SOON
-                </div>
-              </div>
-            </div>
-          </Reveal>
+        <div
+          className={`text-[10px] font-bold tracking-[0.25em] ${muted}`}
+        >
+          07 / CONTACT
         </div>
-      </section>
+      </div>
+    </Reveal>
 
+    <Reveal delay={100}>
+      <div className="py-20">
+        <div
+          className={`mb-7 text-[9px] font-semibold tracking-[0.2em] ${muted}`}
+        >
+          AVAILABLE FOR CREATIVE & DEVELOPMENT WORK
+        </div>
+
+        <h2 className="contact-title max-w-[1050px] text-[clamp(3rem,8vw,8rem)] font-bold leading-[0.87] tracking-[-0.075em]">
+          Let&apos;s build
+          <span className={`block ${muted}`}>
+            something.
+          </span>
+        </h2>
+
+        <div className="mt-14 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+          {/* EMAIL */}
+          <a
+            href="mailto:aldiansyh421@gmail.com"
+            className={`email-button ${
+              darkMode ? "dark-email" : ""
+            } group inline-flex w-fit items-center gap-3 rounded-full px-6 py-3.5 text-[10px] font-bold tracking-[0.15em] hover:-translate-y-1`}
+          >
+            EMAIL
+
+            <span className="transition-transform duration-200 group-hover:translate-x-1">
+              <ArrowIcon />
+            </span>
+          </a>
+
+          {/* INSTAGRAM */}
+          <a
+            href="https://instagram.com/_di1.a_"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`group inline-flex w-fit items-center gap-3 rounded-full border px-6 py-3.5 text-[10px] font-bold tracking-[0.15em] backdrop-blur-xl transition-[background-color,border-color,transform] duration-200 hover:-translate-y-1 ${glass} ${glassHover}`}
+          >
+            INSTAGRAM
+
+            <span className="transition-transform duration-200 group-hover:translate-x-1">
+              <ExternalIcon />
+            </span>
+          </a>
+
+          {/* GITHUB */}
+          <a
+            href="https://github.com/aldi421"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Aldi Aldiansyah GitHub profile"
+            className={`group inline-flex w-fit items-center gap-3 rounded-full border px-6 py-3.5 text-[10px] font-bold tracking-[0.15em] backdrop-blur-xl transition-[background-color,border-color,transform] duration-200 hover:-translate-y-1 ${glass} ${glassHover}`}
+          >
+            GITHUB — ALDI421
+
+            <span className="transition-transform duration-200 group-hover:translate-x-1">
+              <ExternalIcon />
+            </span>
+          </a>
+        </div>
+      </div>
+    </Reveal>
+  </div>
+</section>
       {/* ========================================================= */}
       {/* FOOTER */}
       {/* ========================================================= */}
