@@ -7,6 +7,9 @@ import {
   type ReactNode,
 } from "react";
 
+type ProjectType = "mobile" | "web" | "3d" | "desktop";
+type ProjectFilter = "all" | ProjectType;
+
 type Project = {
   number: string;
   title: string;
@@ -15,9 +18,9 @@ type Project = {
   role: string;
   details: string[];
   tech: string[];
-  image: string;
+  image?: string;
   icon?: string;
-  type: "mobile" | "web" | "3d";
+  type: ProjectType;
   link?: string;
 };
 
@@ -116,6 +119,32 @@ const projects: Project[] = [
     image: "/images/projects/seed-counter/screenshot.jpg",
     type: "3d",
   },
+  {
+  number: "06",
+  title: "SmartDiskAnalyzer",
+  image: "/images/projects/smartdisk/analyzer.png",
+  category: "DESKTOP APPLICATION",
+    description:
+      "Aplikasi desktop untuk menganalisis dan mengelola penggunaan storage secara lebih terstruktur melalui visualisasi, analisis file, pencarian duplikat, dan berbagai utilitas pengelolaan disk.",
+    role: "Python Desktop Development",
+    details: [
+      "Dashboard analisis penggunaan storage",
+      "Scanner untuk menganalisis file dan folder",
+      "Duplicate Finder untuk menemukan file duplikat",
+      "Cleaner dan Organizer untuk pengelolaan file",
+      "Interface desktop menggunakan CustomTkinter",
+      "Project dikembangkan dan dikelola menggunakan Git & GitHub",
+    ],
+    tech: [
+      "Python",
+      "CustomTkinter",
+      "Git",
+      "GitHub",
+      "Desktop App",
+    ],
+    type: "desktop",
+    link: "https://github.com/aldi421/SmartDiskAnalyzer",
+  },
 ];
 
 const skillGroups = [
@@ -126,6 +155,7 @@ const skillGroups = [
       "CSS",
       "JavaScript",
       "PHP",
+      "Python",
       "Git",
       "GitHub",
     ],
@@ -136,6 +166,14 @@ const skillGroups = [
       "Flutter",
       "Dart",
       "Android",
+    ],
+  },
+  {
+    title: "DESKTOP",
+    skills: [
+      "Python",
+      "CustomTkinter",
+      "Desktop Application",
     ],
   },
   {
@@ -196,9 +234,9 @@ const timeline = [
   },
   {
     year: "2026",
-    title: "Industrial Experience",
+    title: "Desktop & Industrial Experience",
     description:
-      "Melaksanakan PKL di PT Riset Perkebunan Nusantara dan terlibat dalam IT Center, desain, 3D visualization, dokumentasi, serta aktivitas laboratorium.",
+      "Mengembangkan aplikasi desktop menggunakan Python dan CustomTkinter sekaligus melaksanakan PKL di PT Riset Perkebunan Nusantara.",
   },
 ];
 
@@ -258,6 +296,7 @@ function ArrowIcon() {
       strokeWidth="1.8"
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden="true"
     >
       <path d="M5 12h14" />
       <path d="m13 6 6 6-6 6" />
@@ -276,6 +315,7 @@ function ExternalIcon() {
       strokeWidth="1.8"
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden="true"
     >
       <path d="M14 3h7v7" />
       <path d="M10 14 21 3" />
@@ -295,6 +335,7 @@ function SunIcon() {
       strokeWidth="1.8"
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden="true"
     >
       <circle cx="12" cy="12" r="4" />
       <path d="M12 2v2" />
@@ -320,6 +361,7 @@ function MoonIcon() {
       strokeWidth="1.8"
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden="true"
     >
       <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.7 6.7 0 0 0 21 12.8Z" />
     </svg>
@@ -336,6 +378,7 @@ function GridIcon() {
       stroke="currentColor"
       strokeWidth="1.6"
       strokeLinecap="round"
+      aria-hidden="true"
     >
       <path d="M4 4h6v6H4z" />
       <path d="M14 4h6v6h-6z" />
@@ -355,6 +398,7 @@ function FilterIcon() {
       stroke="currentColor"
       strokeWidth="1.7"
       strokeLinecap="round"
+      aria-hidden="true"
     >
       <path d="M4 6h16" />
       <path d="M7 12h10" />
@@ -374,6 +418,7 @@ function CheckIcon() {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden="true"
     >
       <path d="m5 12 4 4L19 6" />
     </svg>
@@ -390,6 +435,7 @@ function MenuIcon({ open }: { open: boolean }) {
       stroke="currentColor"
       strokeWidth="1.8"
       strokeLinecap="round"
+      aria-hidden="true"
     >
       {open ? (
         <>
@@ -418,6 +464,7 @@ function ArrowUpIcon() {
       strokeWidth="1.8"
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden="true"
     >
       <path d="M12 19V5" />
       <path d="m6 11 6-6 6 6" />
@@ -427,10 +474,195 @@ function ArrowUpIcon() {
 
 function BrowserDots() {
   return (
-    <div className="flex items-center gap-1.5">
+    <div className="flex items-center gap-1.5" aria-hidden="true">
       <span className="h-1.5 w-1.5 rounded-full bg-current opacity-35" />
       <span className="h-1.5 w-1.5 rounded-full bg-current opacity-25" />
       <span className="h-1.5 w-1.5 rounded-full bg-current opacity-15" />
+    </div>
+  );
+}
+
+function DesktopPreview({
+  darkMode,
+}: {
+  darkMode: boolean;
+}) {
+  return (
+    <div className="relative flex min-h-[420px] items-center justify-center overflow-hidden p-6 sm:min-h-[540px] sm:p-10">
+      <div
+        className={`absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl ${
+          darkMode ? "bg-white/[0.025]" : "bg-black/[0.025]"
+        }`}
+      />
+
+      <div
+        className={`project-visual-label absolute left-7 top-7 z-20 text-[8px] font-bold tracking-[0.18em] ${darkMode ? "text-white/42" : "text-black/42"}`}
+      >
+        DESKTOP / PREVIEW
+      </div>
+
+      <div
+        className={`absolute right-7 top-7 z-20 text-[8px] tracking-[0.15em] ${
+          darkMode ? "text-white/42" : "text-black/42"
+        }`}
+      >
+        PYTHON / CUSTOMTKINTER
+      </div>
+
+      <div
+        className={`relative z-10 w-full max-w-[680px] overflow-hidden rounded-[22px] border shadow-[0_35px_90px_rgba(0,0,0,0.4)] ${
+          darkMode
+            ? "border-white/10 bg-[#101010]"
+            : "border-black/10 bg-[#f4f4f4]"
+        }`}
+      >
+        <div
+          className={`flex h-10 items-center justify-between border-b px-4 ${
+            darkMode
+              ? "border-white/10 bg-white/[0.025]"
+              : "border-black/10 bg-black/[0.025]"
+          }`}
+        >
+          <div className="flex items-center gap-2">
+            <BrowserDots />
+            <span
+              className={`text-[8px] font-bold tracking-[0.16em] ${
+                darkMode ? "text-white/60" : "text-black/60"
+              }`}
+            >
+              SMARTDISK ANALYZER
+            </span>
+          </div>
+
+          <span
+            className={`text-[7px] tracking-[0.12em] ${
+              darkMode ? "text-white/30" : "text-black/30"
+            }`}
+          >
+            v1.0
+          </span>
+        </div>
+
+        <div className="grid min-h-[300px] grid-cols-[110px_1fr]">
+          <div
+            className={`border-r p-4 ${
+              darkMode ? "border-white/10" : "border-black/10"
+            }`}
+          >
+            <div
+              className={`mb-5 text-[7px] font-bold tracking-[0.15em] ${
+                darkMode ? "text-white/35" : "text-black/35"
+              }`}
+            >
+              MODULES
+            </div>
+
+            <div className="space-y-2">
+              {[
+                "Dashboard",
+                "Analyzer",
+                "Organizer",
+                "Duplicate",
+                "Cleaner",
+              ].map((item, index) => (
+                <div
+                  key={item}
+                  className={`rounded-lg px-2.5 py-2 text-[7px] ${
+                    index === 0
+                      ? darkMode
+                        ? "bg-white text-black"
+                        : "bg-black text-white"
+                      : darkMode
+                        ? "text-white/40"
+                        : "text-black/40"
+                  }`}
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="p-5 sm:p-7">
+            <div
+              className={`text-[8px] font-bold tracking-[0.18em] ${
+                darkMode ? "text-white/40" : "text-black/40"
+              }`}
+            >
+              STORAGE OVERVIEW
+            </div>
+
+            <div className="mt-3 text-2xl font-bold tracking-[-0.04em] sm:text-4xl">
+              256 GB
+            </div>
+
+            <div
+              className={`mt-2 text-[8px] ${
+                darkMode ? "text-white/35" : "text-black/35"
+              }`}
+            >
+              Disk analysis dashboard
+            </div>
+
+            <div
+              className={`mt-7 h-2 overflow-hidden rounded-full ${
+                darkMode ? "bg-white/10" : "bg-black/10"
+              }`}
+            >
+              <div
+                className={`h-full w-[68%] rounded-full ${
+                  darkMode ? "bg-white" : "bg-black"
+                }`}
+              />
+            </div>
+
+            <div className="mt-7 grid grid-cols-2 gap-3">
+              {[
+                ["FILES", "12.4K"],
+                ["FOLDERS", "1.8K"],
+                ["USED", "174 GB"],
+                ["FREE", "82 GB"],
+              ].map(([label, value]) => (
+                <div
+                  key={label}
+                  className={`rounded-xl border p-3 ${
+                    darkMode
+                      ? "border-white/10 bg-white/[0.025]"
+                      : "border-black/10 bg-black/[0.025]"
+                  }`}
+                >
+                  <div
+                    className={`text-[6px] font-bold tracking-[0.14em] ${
+                      darkMode ? "text-white/30" : "text-black/30"
+                    }`}
+                  >
+                    {label}
+                  </div>
+                  <div className="mt-2 text-sm font-bold">
+                    {value}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        className={`absolute bottom-6 left-6 text-[8px] font-bold tracking-[0.18em] ${
+          darkMode ? "text-white/35" : "text-black/35"
+        }`}
+      >
+        DESKTOP / STORAGE TOOL
+      </div>
+
+      <div
+        className={`absolute bottom-6 right-6 text-[8px] tracking-[0.15em] ${
+          darkMode ? "text-white/35" : "text-black/35"
+        }`}
+      >
+        PYTHON / GITHUB
+      </div>
     </div>
   );
 }
@@ -444,14 +676,9 @@ export default function Home() {
   const [themeReady, setThemeReady] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const [activeSection, setActiveSection] =
-    useState("home");
-
-  const [activeFilter, setActiveFilter] = useState<
-    "all" | "mobile" | "web" | "3d"
-  >("all");
-
-  /* ================= THEME ================= */
+  const [activeSection, setActiveSection] = useState("home");
+  const [activeFilter, setActiveFilter] =
+    useState<ProjectFilter>("all");
 
   useEffect(() => {
     const savedTheme =
@@ -481,8 +708,6 @@ export default function Home() {
     );
   }, [darkMode, themeReady]);
 
-  /* ================= SCROLL ================= */
-
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 35);
@@ -498,8 +723,6 @@ export default function Home() {
     return () =>
       window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  /* ================= ACTIVE SECTION ================= */
 
   useEffect(() => {
     const sectionIds = [
@@ -544,8 +767,6 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
-  /* ================= NAV ================= */
-
   const navItems = [
     { label: "WORK", id: "work" },
     { label: "ABOUT", id: "about" },
@@ -564,8 +785,6 @@ export default function Home() {
     setMobileMenuOpen(false);
   };
 
-  /* ================= FILTER ================= */
-
   const filteredProjects =
     activeFilter === "all"
       ? projects
@@ -573,36 +792,60 @@ export default function Home() {
           (project) => project.type === activeFilter
         );
 
-  const filterItems = [
+  const filterItems: {
+    label: string;
+    value: ProjectFilter;
+    count: number;
+  }[] = [
     {
       label: "ALL",
-      value: "all" as const,
+      value: "all",
       count: projects.length,
     },
     {
       label: "MOBILE",
-      value: "mobile" as const,
+      value: "mobile",
       count: projects.filter(
         (project) => project.type === "mobile"
       ).length,
     },
     {
       label: "WEB",
-      value: "web" as const,
+      value: "web",
       count: projects.filter(
         (project) => project.type === "web"
       ).length,
     },
     {
+      label: "DESKTOP",
+      value: "desktop",
+      count: projects.filter(
+        (project) => project.type === "desktop"
+      ).length,
+    },
+    {
       label: "3D",
-      value: "3d" as const,
+      value: "3d",
       count: projects.filter(
         (project) => project.type === "3d"
       ).length,
     },
   ];
 
-  /* ================= TOKENS ================= */
+  const getProjectTypeLabel = (
+    type: ProjectType
+  ) => {
+    switch (type) {
+      case "mobile":
+        return "MOBILE";
+      case "web":
+        return "WEB";
+      case "desktop":
+        return "DESKTOP";
+      case "3d":
+        return "3D";
+    }
+  };
 
   const bg = darkMode ? "bg-black" : "bg-white";
   const text = darkMode ? "text-white" : "text-black";
@@ -655,8 +898,6 @@ export default function Home() {
           color: ${darkMode ? "#000000" : "#ffffff"};
         }
 
-        /* ================= REVEAL ================= */
-
         .reveal {
           opacity: 0;
           transform: translateY(28px);
@@ -669,8 +910,6 @@ export default function Home() {
           opacity: 1;
           transform: translateY(0);
         }
-
-        /* ================= BACKGROUND ================= */
 
         .hero-grid {
           position: absolute;
@@ -750,8 +989,6 @@ export default function Home() {
           background: currentColor;
         }
 
-        /* ================= NAV ================= */
-
         .nav-shell {
           transform: translateY(0);
           transition:
@@ -813,8 +1050,6 @@ export default function Home() {
           }
         }
 
-        /* ================= GLASS ================= */
-
         .glass-shine {
           position: relative;
           overflow: hidden;
@@ -839,8 +1074,6 @@ export default function Home() {
           transform: translateX(120%);
         }
 
-        /* ================= THEME TOGGLE ================= */
-
         .theme-toggle {
           transition:
             background-color 180ms ease,
@@ -859,46 +1092,44 @@ export default function Home() {
 
         .theme-knob {
           transition:
-            transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
-            background-color 180ms ease,
-            color 180ms ease;
+            transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+            background-color 300ms cubic-bezier(0.22, 1, 0.36, 1),
+            color 300ms cubic-bezier(0.22, 1, 0.36, 1),
+            box-shadow 300ms cubic-bezier(0.22, 1, 0.36, 1);
+          will-change: transform;
         }
 
-        /* ================= EMAIL ================= */
-
-        .email-button {
-          background: #000000;
-          color: #ffffff !important;
-          border: 1px solid #000000;
+        .theme-knob-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
           transition:
-            transform 180ms ease,
-            background-color 180ms ease,
-            border-color 180ms ease,
-            box-shadow 180ms ease;
+            opacity 220ms ease,
+            transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+          will-change: transform, opacity;
         }
 
-        .email-button:hover {
-          background: #1f1f1f;
-          color: #ffffff !important;
-          border-color: #1f1f1f;
-          box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+        .theme-knob-icon.dark {
+          transform: rotate(0deg) scale(1);
+          opacity: 1;
         }
 
-        .email-button.dark-email {
-          background: #ffffff;
-          color: #000000 !important;
-          border-color: #ffffff;
+        .theme-knob-icon.light {
+          transform: rotate(-18deg) scale(0.72);
+          opacity: 0;
         }
 
-        .email-button.dark-email:hover {
-          background: #e4e4e7;
-          color: #000000 !important;
-          border-color: #e4e4e7;
-          box-shadow: 0 12px 30px rgba(255,255,255,0.08);
+        .theme-knob-icon.dark-mode-off {
+          transform: rotate(18deg) scale(0.72);
+          opacity: 0;
         }
 
-        /* ================= PROJECT OPEN ================= */
+        .theme-knob-icon.light-mode-on {
+          transform: rotate(0deg) scale(1);
+          opacity: 1;
+        }
 
+        .email-button,
         .project-open-button {
           background: #000000;
           color: #ffffff !important;
@@ -910,6 +1141,7 @@ export default function Home() {
             box-shadow 180ms ease;
         }
 
+        .email-button:hover,
         .project-open-button:hover {
           background: #1f1f1f;
           color: #ffffff !important;
@@ -917,12 +1149,14 @@ export default function Home() {
           box-shadow: 0 12px 30px rgba(0,0,0,0.18);
         }
 
+        .email-button.dark-email,
         .project-open-button.dark-project-open {
           background: #ffffff;
           color: #000000 !important;
           border-color: #ffffff;
         }
 
+        .email-button.dark-email:hover,
         .project-open-button.dark-project-open:hover {
           background: #e4e4e7;
           color: #000000 !important;
@@ -930,9 +1164,8 @@ export default function Home() {
           box-shadow: 0 12px 30px rgba(255,255,255,0.08);
         }
 
-        /* ================= HERO ================= */
-
-        .hero-title {
+        .hero-title,
+        .contact-title {
           text-wrap: balance;
         }
 
@@ -972,8 +1205,6 @@ export default function Home() {
           opacity: 0.7;
         }
 
-        /* ================= SECTION ================= */
-
         .section-line {
           position: relative;
           overflow: hidden;
@@ -989,8 +1220,6 @@ export default function Home() {
           background: currentColor;
           opacity: 0.3;
         }
-
-        /* ================= PROJECT EXPERIENCE ================= */
 
         .project-image {
           transition:
@@ -1052,17 +1281,6 @@ export default function Home() {
           transform: translateY(-2px);
         }
 
-        .project-open {
-          transition:
-            transform 200ms ease,
-            opacity 200ms ease;
-        }
-
-        .project-open:hover {
-          transform: translateX(4px);
-          opacity: 0.7;
-        }
-
         .project-tech {
           transition:
             background-color 180ms ease,
@@ -1100,17 +1318,6 @@ export default function Home() {
 
         article:hover .project-progress::after {
           transform: translateX(310%);
-        }
-
-        .project-index {
-          transition:
-            background-color 200ms ease,
-            color 200ms ease,
-            transform 200ms ease;
-        }
-
-        .project-frame:hover .project-index {
-          transform: translateY(-2px);
         }
 
         .project-corner {
@@ -1162,8 +1369,6 @@ export default function Home() {
               : "rgba(0,0,0,0.10)"};
         }
 
-        /* ================= EXPERIENCE ================= */
-
         .experience-item {
           transition:
             padding-left 250ms ease,
@@ -1183,8 +1388,6 @@ export default function Home() {
         .experience-item:hover .experience-tag {
           transform: translateX(3px);
         }
-
-        /* ================= SKILLS ================= */
 
         .skill-card {
           position: relative;
@@ -1222,18 +1425,18 @@ export default function Home() {
           opacity: 0.65;
         }
 
-        .skill-chip {
+        .skill-chip,
+        .focus-pill {
           transition:
             transform 180ms ease,
             background-color 180ms ease,
             border-color 180ms ease;
         }
 
-        .skill-chip:hover {
+        .skill-chip:hover,
+        .focus-pill:hover {
           transform: translateY(-2px);
         }
-
-        /* ================= TIMELINE ================= */
 
         .timeline-item {
           position: relative;
@@ -1258,8 +1461,6 @@ export default function Home() {
           transform: translateX(4px);
         }
 
-        /* ================= ABOUT ================= */
-
         .about-photo {
           transition:
             transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -1281,23 +1482,6 @@ export default function Home() {
           transform: translateY(-3px);
         }
 
-        .focus-pill {
-          transition:
-            transform 180ms ease,
-            background-color 180ms ease,
-            border-color 180ms ease;
-        }
-
-        .focus-pill:hover {
-          transform: translateY(-2px);
-        }
-
-        /* ================= CONTACT ================= */
-
-        .contact-title {
-          text-wrap: balance;
-        }
-
         .contact-link {
           transition:
             transform 180ms ease,
@@ -1307,8 +1491,6 @@ export default function Home() {
         .contact-link:hover {
           transform: translateX(4px);
         }
-
-        /* ================= BACK TO TOP ================= */
 
         .back-top {
           transition:
@@ -1326,8 +1508,6 @@ export default function Home() {
               ? "rgba(255,255,255,0.09)"
               : "rgba(0,0,0,0.09)"};
         }
-
-        /* ================= MOBILE ================= */
 
         @media (max-width: 768px) {
           .hero-name-wrap::after {
@@ -1405,6 +1585,7 @@ export default function Home() {
 
           .theme-toggle,
           .theme-knob,
+          .theme-knob-icon,
           .email-button,
           .project-open-button,
           .nav-shell,
@@ -1422,7 +1603,6 @@ export default function Home() {
           .contact-link,
           .hero-name-wrap::after,
           .hero-brand,
-          .project-index,
           .project-corner,
           .project-browser-bar,
           .experience-item,
@@ -1439,7 +1619,10 @@ export default function Home() {
       {/* NAVBAR */}
       {/* ========================================================= */}
 
-      <nav className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 sm:px-6">
+      <nav
+        className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 sm:px-6"
+        aria-label="Primary navigation"
+      >
         <div
           className={`nav-shell ${
             scrolled ? "scrolled" : ""
@@ -1455,6 +1638,7 @@ export default function Home() {
             href="#home"
             onClick={closeMobileMenu}
             className="group flex items-center gap-3"
+            aria-label="ALDEV home"
           >
             <div
               className={`flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border transition-transform duration-300 group-hover:scale-105 ${
@@ -1496,8 +1680,6 @@ export default function Home() {
             </div>
           </a>
 
-          {/* DESKTOP NAV */}
-
           <div className="hidden items-center gap-8 md:flex">
             {navItems.map((item) => {
               const active =
@@ -1518,8 +1700,6 @@ export default function Home() {
           </div>
 
           <div className="flex items-center gap-2">
-            {/* MOBILE MENU BUTTON */}
-
             <button
               type="button"
               onClick={() =>
@@ -1536,11 +1716,11 @@ export default function Home() {
               <MenuIcon open={mobileMenuOpen} />
             </button>
 
-            {/* THEME */}
-
             <button
               type="button"
-              onClick={() => setDarkMode((value) => !value)}
+              onClick={() =>
+                setDarkMode((value) => !value)
+              }
               aria-label={
                 darkMode
                   ? "Switch to light mode"
@@ -1552,15 +1732,29 @@ export default function Home() {
               <span
                 className={`theme-knob absolute flex h-8 w-8 items-center justify-center rounded-full ${
                   darkMode
-                    ? "translate-x-7 bg-white text-black"
-                    : "translate-x-0 bg-black text-white"
+                    ? "translate-x-7 bg-white text-black shadow-[0_4px_14px_rgba(255,255,255,0.10)]"
+                    : "translate-x-0 bg-black text-white shadow-[0_4px_14px_rgba(0,0,0,0.12)]"
                 }`}
               >
-                {darkMode ? (
+                <span
+                  className={`theme-knob-icon absolute ${
+                    darkMode
+                      ? "dark"
+                      : "dark-mode-off"
+                  }`}
+                >
                   <MoonIcon />
-                ) : (
+                </span>
+
+                <span
+                  className={`theme-knob-icon absolute ${
+                    darkMode
+                      ? "light"
+                      : "light-mode-on"
+                  }`}
+                >
                   <SunIcon />
-                )}
+                </span>
               </span>
 
               <span className="flex w-full justify-between px-[7px] text-[9px] opacity-35">
@@ -1571,14 +1765,12 @@ export default function Home() {
           </div>
         </div>
 
-        {/* MOBILE NAV PANEL */}
-
         {mobileMenuOpen && (
           <div
             className={`mobile-menu mx-auto mt-2 max-w-[1380px] rounded-[26px] border p-3 backdrop-blur-2xl md:hidden ${glass}`}
           >
             <div className="grid gap-1">
-              {navItems.map((item) => {
+              {navItems.map((item, index) => {
                 const active =
                   activeSection === item.id;
 
@@ -1603,12 +1795,10 @@ export default function Home() {
 
                     <span
                       className={`text-[8px] ${
-                        active
-                          ? "opacity-45"
-                          : muted
+                        active ? "opacity-45" : muted
                       }`}
                     >
-                      0{navItems.indexOf(item) + 1}
+                      0{index + 1}
                     </span>
                   </a>
                 );
@@ -1699,8 +1889,8 @@ export default function Home() {
                   className={`max-w-[620px] text-[15px] leading-7 sm:text-[17px] ${soft}`}
                 >
                   Building digital products through code,
-                  design, mobile applications, web development,
-                  and visual experiences.
+                  design, mobile applications, desktop tools,
+                  web development, and visual experiences.
                 </p>
               </div>
 
@@ -1749,7 +1939,7 @@ export default function Home() {
                 <div className="sm:text-right">
                   <div className={muted}>SPECIALIZATION</div>
                   <div className="mt-2">
-                    WEB / MOBILE / DESIGN
+                    WEB / MOBILE / DESKTOP
                   </div>
                 </div>
               </div>
@@ -1857,6 +2047,7 @@ export default function Home() {
                       onClick={() =>
                         setActiveFilter(filter.value)
                       }
+                      aria-pressed={active}
                       className={`filter-pill ${
                         active
                           ? "filter-pill-active"
@@ -1879,9 +2070,7 @@ export default function Home() {
 
                       <span
                         className={`ml-2 ${
-                          active
-                            ? "opacity-45"
-                            : muted
+                          active ? "opacity-45" : muted
                         }`}
                       >
                         {String(filter.count).padStart(
@@ -1898,11 +2087,12 @@ export default function Home() {
 
           <div className="space-y-32">
             {filteredProjects.map((project, index) => {
-              const originalIndex = projects.findIndex(
-                (item) => item.number === project.number
-              );
-
               const reversed = index % 2 === 1;
+              const originalIndex =
+                projects.findIndex(
+                  (item) =>
+                    item.number === project.number
+                );
 
               return (
                 <Reveal
@@ -1943,11 +2133,9 @@ export default function Home() {
                           <span
                             className={`project-status rounded-full border px-3 py-1.5 text-[8px] font-semibold tracking-[0.16em] ${glass}`}
                           >
-                            {project.type === "mobile"
-                              ? "MOBILE"
-                              : project.type === "web"
-                                ? "WEB"
-                                : "3D"}
+                            {getProjectTypeLabel(
+                              project.type
+                            )}
                           </span>
 
                           <span
@@ -2013,16 +2201,16 @@ export default function Home() {
                               )}
                             </div>
 
-                            <div
-                              className={`relative z-10 h-[475px] w-[238px] overflow-hidden rounded-[36px] border-[7px] border-black bg-black shadow-[0_35px_90px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:translate-y-[-4px] sm:h-[535px] sm:w-[268px]`}
-                            >
+                            <div className="relative z-10 h-[475px] w-[238px] overflow-hidden rounded-[36px] border-[7px] border-black bg-black shadow-[0_35px_90px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:translate-y-[-4px] sm:h-[535px] sm:w-[268px]">
                               <div className="absolute left-1/2 top-2 z-20 h-5 w-20 -translate-x-1/2 rounded-full bg-black" />
 
-                              <img
-                                src={project.image}
-                                alt={`${project.title} screenshot`}
-                                className="project-image h-full w-full object-cover"
-                              />
+                              {project.image && (
+                                <img
+                                  src={project.image}
+                                  alt={`${project.title} screenshot`}
+                                  className="project-image h-full w-full object-cover"
+                                />
+                              )}
 
                               {project.icon && (
                                 <div className="absolute bottom-5 left-1/2 z-20 h-12 w-12 -translate-x-1/2 overflow-hidden rounded-[13px] border border-white/20 bg-black/30 p-1 shadow-xl backdrop-blur-md">
@@ -2047,7 +2235,67 @@ export default function Home() {
                               FLUTTER / ANDROID
                             </div>
                           </div>
-                        ) : (
+                        ) : project.type === "desktop" ? (
+  <div
+    className={`relative aspect-[16/10] overflow-hidden ${
+      darkMode ? "bg-[#0b0b0b]" : "bg-[#f1f1f1]"
+    }`}
+  >
+    <div
+      className={`project-browser-bar absolute left-0 right-0 top-0 z-20 flex h-10 items-center gap-4 border-b px-5 backdrop-blur-xl ${
+        darkMode
+          ? "border-white/10 bg-black/45 text-white"
+          : "border-black/10 bg-white/55 text-black"
+      }`}
+    >
+      <BrowserDots />
+
+      <div className="hidden flex-1 items-center justify-center sm:flex">
+        <div
+          className={`w-[55%] rounded-full border px-4 py-1.5 text-[7px] tracking-[0.12em] ${
+            darkMode
+              ? "border-white/10 bg-white/[0.04] text-white/35"
+              : "border-black/10 bg-black/[0.025] text-black/35"
+          }`}
+        >
+          SMARTDISK ANALYZER / DESKTOP PREVIEW
+        </div>
+      </div>
+    </div>
+
+    {project.image && (
+      <img
+        src={project.image}
+        alt={`${project.title} project preview`}
+        className="project-image h-full w-full object-cover pt-10"
+      />
+    )}
+
+    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-black/5" />
+
+    <div className="absolute left-6 top-16 z-10">
+      <span className="rounded-full border border-white/15 bg-black/40 px-4 py-2 text-[8px] font-semibold tracking-[0.16em] text-white backdrop-blur-xl">
+        DESKTOP APPLICATION
+      </span>
+    </div>
+
+    <div className="absolute bottom-6 left-6 right-6 z-10 flex items-end justify-between text-white">
+      <div>
+        <div className="text-[9px] font-bold tracking-[0.16em]">
+          SMARTDISK ANALYZER
+        </div>
+
+        <div className="mt-1 text-[8px] tracking-[0.12em] text-white/55">
+          PYTHON / CUSTOMTKINTER
+        </div>
+      </div>
+
+      <span className="text-[8px] tracking-[0.16em] text-white/55">
+        {project.number}
+      </span>
+    </div>
+  </div>
+) : (
                           <div
                             className={`relative aspect-[16/10] overflow-hidden ${
                               project.type === "3d"
@@ -2083,19 +2331,21 @@ export default function Home() {
                               </div>
                             )}
 
-                            <img
-                              src={project.image}
-                              alt={`${project.title} project preview`}
-                              className={`project-image h-full w-full ${
-                                project.type === "3d"
-                                  ? "object-contain p-7 sm:p-10"
-                                  : `object-cover ${
-                                      project.type === "web"
-                                        ? "pt-10"
-                                        : ""
-                                    }`
-                              }`}
-                            />
+                            {project.image && (
+                              <img
+                                src={project.image}
+                                alt={`${project.title} project preview`}
+                                className={`project-image h-full w-full ${
+                                  project.type === "3d"
+                                    ? "object-contain p-7 sm:p-10"
+                                    : `object-cover ${
+                                        project.type === "web"
+                                          ? "pt-10"
+                                          : ""
+                                      }`
+                                }`}
+                              />
+                            )}
 
                             <div
                               className={`pointer-events-none absolute inset-0 ${
@@ -2254,13 +2504,16 @@ export default function Home() {
                                 href={project.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                aria-label={`Open ${project.title}`}
                                 className={`project-open-button ${
                                   darkMode
                                     ? "dark-project-open"
                                     : ""
-                                } group inline-flex items-center gap-3 rounded-full px-5 py-3 text-[10px] font-bold tracking-[0.16em] transition-transform duration-200 hover:-translate-y-1`}
+                                } group inline-flex items-center gap-3 rounded-full px-5 py-3 text-[10px] font-bold tracking-[0.16em] hover:-translate-y-1`}
                               >
-                                OPEN PROJECT
+                                {project.type === "desktop"
+                                  ? "VIEW GITHUB"
+                                  : "OPEN PROJECT"}
 
                                 <span className="transition-transform duration-200 group-hover:translate-x-1">
                                   <ExternalIcon />
@@ -2427,8 +2680,8 @@ export default function Home() {
                     className={`mt-4 max-w-[680px] text-[14px] leading-7 ${soft}`}
                   >
                     Fokus pada pengembangan aplikasi, website,
-                    database, interface, visual design, dan
-                    eksplorasi teknologi digital.
+                    database, interface, visual design, desktop
+                    tools, dan eksplorasi teknologi digital.
                   </p>
                 </div>
 
@@ -2445,6 +2698,8 @@ export default function Home() {
                     {[
                       "WEB",
                       "MOBILE",
+                      "DESKTOP",
+                      "PYTHON",
                       "UI / UX",
                       "DATABASE",
                       "3D",
@@ -2496,7 +2751,7 @@ export default function Home() {
               >
                 Kumpulan teknologi dan tools yang digunakan untuk
                 membangun produk digital dari struktur, interface,
-                sampai visual.
+                aplikasi desktop, sampai visual.
               </p>
             </div>
           </Reveal>
@@ -2582,7 +2837,7 @@ export default function Home() {
             <div>
               {timeline.map((item, index) => (
                 <Reveal
-                  key={item.year}
+                  key={`${item.year}-${item.title}`}
                   delay={index * 80}
                 >
                   <div
@@ -2625,313 +2880,357 @@ export default function Home() {
 
       {/* ========================================================= */}
       {/* ABOUT */}
-<section id="about" className="scroll-mt-24 px-5 py-28 sm:px-8 lg:px-12">
-  <div className="mx-auto max-w-[1380px]">
-    <Reveal>
-      <div className={`section-line mb-14 border-t pt-5 ${border}`}>
-        <div className={`text-[10px] font-bold tracking-[0.25em] ${muted}`}>
-          06 / ABOUT
-        </div>
-      </div>
-    </Reveal>
+      {/* ========================================================= */}
 
-    <div className="grid items-start gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
-      {/* PHOTO */}
-      <Reveal>
-        <div className="mx-auto w-full max-w-[420px] lg:mx-0">
-          <div
-            className={`about-frame group relative aspect-[3/4] overflow-hidden rounded-[30px] border p-2 backdrop-blur-2xl transition-transform duration-500 hover:-translate-y-2 ${glass}`}
-          >
-            <div className="relative h-full w-full overflow-hidden rounded-[23px] bg-neutral-900">
-              {!photoError ? (
-                <img
-                  src="/images/profile/aldi.jpg"
-                  alt="Aldi Aldiansyah"
-                  onError={() => setPhotoError(true)}
-                  className="about-photo h-full w-full object-cover object-center"
-                />
-              ) : (
-                <div className="flex h-full w-full flex-col items-center justify-center text-center text-white">
-                  <div className="text-5xl font-black">A</div>
-                  <div className="mt-4 text-[9px] font-bold tracking-[0.2em] text-white/40">
-                    PHOTO NOT FOUND
-                  </div>
-                </div>
-              )}
-
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
-
-              <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between text-white">
-                <div>
-                  <div className="text-[10px] font-bold tracking-[0.2em]">
-                    ALDI ALDIANSYAH
-                  </div>
-                  <div className="mt-1 text-[8px] tracking-[0.15em] text-white/60">
-                    ALDEV / INFORMATICS
-                  </div>
-                </div>
-
-                <div className="text-[8px] tracking-[0.18em]">
-                  2026
-                </div>
+      <section
+        id="about"
+        className="scroll-mt-24 px-5 py-28 sm:px-8 lg:px-12"
+      >
+        <div className="mx-auto max-w-[1380px]">
+          <Reveal>
+            <div
+              className={`section-line mb-14 border-t pt-5 ${border}`}
+            >
+              <div
+                className={`text-[10px] font-bold tracking-[0.25em] ${muted}`}
+              >
+                06 / ABOUT
               </div>
             </div>
-          </div>
+          </Reveal>
 
-          <div
-            className={`mt-4 flex items-center justify-between text-[8px] font-semibold tracking-[0.16em] ${muted}`}
-          >
-            <span>PORTRAIT / 2026</span>
-            <span>ALDEV</span>
-          </div>
-        </div>
-      </Reveal>
-
-      {/* STORY */}
-      <Reveal delay={120}>
-        <div>
-          <div className={`mb-5 text-[9px] font-bold tracking-[0.2em] ${muted}`}>
-            PROFILE / WHO I AM
-          </div>
-
-          <h2 className="max-w-[850px] text-[clamp(2.8rem,6vw,6rem)] font-bold leading-[0.9] tracking-[-0.065em]">
-            I&apos;m Aldi.
-            <span className={`block ${muted}`}>
-              I build, explore,
-              <br />
-              and keep learning.
-            </span>
-          </h2>
-
-          <div className="mt-9 max-w-[760px] space-y-5">
-            <p className={`text-[15px] leading-8 ${soft}`}>
-              Saya Aldi Aldiansyah, siswa kelas XII PPLG 4 di SMK Informatika
-              CBI. Saya mulai mengenal dunia Informatika sejak 2024, dan sejak
-              saat itu saya terus mencoba memahami bagaimana teknologi bisa
-              digunakan untuk membuat sesuatu yang benar-benar berguna.
-            </p>
-
-            <p className={`text-[15px] leading-8 ${soft}`}>
-              Awalnya saya banyak belajar dari website dan database. Dari sana,
-              rasa penasaran saya berkembang ke mobile development, UI/UX,
-              desain visual, multimedia, sampai 3D visualization. Saya suka
-              proses ketika sebuah ide yang masih sederhana perlahan berubah
-              menjadi interface, aplikasi, website, atau visual yang bisa
-              dilihat dan digunakan.
-            </p>
-
-            <p className={`text-[15px] leading-8 ${soft}`}>
-              Pengalaman PKL di PT Riset Perkebunan Nusantara juga memberi saya
-              kesempatan untuk melihat bagaimana kemampuan yang dipelajari di
-              sekolah digunakan dalam lingkungan kerja nyata. Saya terlibat
-              dalam pembuatan media visual, poster keamanan digital, visualisasi
-              3D Seed Counter, dokumentasi, hingga aktivitas di laboratorium.
-            </p>
-
-            <p className={`text-[15px] leading-8 ${soft}`}>
-              Sekarang saya ingin terus berkembang sebagai seseorang yang tidak
-              hanya bisa menulis kode, tetapi juga memahami bagaimana sebuah
-              produk terlihat, terasa, dan bekerja. Buat saya, teknologi,
-              desain, dan kreativitas bukan tiga hal yang terpisah — semuanya
-              bisa saling melengkapi untuk membuat karya digital yang lebih
-              baik.
-            </p>
-          </div>
-
-          {/* IDENTITY STATS */}
-          <div className={`mt-11 grid max-w-[760px] grid-cols-3 border-y ${border}`}>
-            <div className={`about-stat border-r py-6 pr-4 ${border}`}>
-              <div className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-none tracking-[-0.06em]">
-                2024
-              </div>
-              <div className={`mt-3 text-[8px] font-bold tracking-[0.16em] ${muted}`}>
-                STARTED INFORMATICS
-              </div>
-            </div>
-
-            <div className={`about-stat border-r px-4 py-6 ${border}`}>
-              <div className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-none tracking-[-0.06em]">
-                05
-              </div>
-              <div className={`mt-3 text-[8px] font-bold tracking-[0.16em] ${muted}`}>
-                SELECTED PROJECTS
-              </div>
-            </div>
-
-            <div className="about-stat py-6 pl-4">
-              <div className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-none tracking-[-0.06em]">
-                2026
-              </div>
-              <div className={`mt-3 text-[8px] font-bold tracking-[0.16em] ${muted}`}>
-                INDUSTRIAL EXPERIENCE
-              </div>
-            </div>
-          </div>
-
-          {/* PERSONAL INFO */}
-          <div
-            className={`mt-8 grid max-w-[760px] gap-6 border-t pt-7 sm:grid-cols-3 ${border}`}
-          >
-            <div>
-              <div className={`text-[9px] tracking-[0.18em] ${muted}`}>
-                SCHOOL
-              </div>
-              <div className="mt-2 text-[12px] font-medium">
-                SMK INFORMATIKA CBI
-              </div>
-            </div>
-
-            <div>
-              <div className={`text-[9px] tracking-[0.18em] ${muted}`}>
-                CLASS
-              </div>
-              <div className="mt-2 text-[12px] font-medium">
-                XII PPLG 4
-              </div>
-            </div>
-
-            <div>
-              <div className={`text-[9px] tracking-[0.18em] ${muted}`}>
-                IDENTITY
-              </div>
-              <div className="mt-2 text-[12px] font-medium">
-                ALDEV / DIGITAL CREATOR
-              </div>
-            </div>
-          </div>
-
-          {/* WHAT I EXPLORE */}
-          <div className="mt-9">
-            <div className={`mb-3 text-[8px] font-bold tracking-[0.2em] ${muted}`}>
-              WHAT I&apos;M EXPLORING
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              {[
-                "WEB DEVELOPMENT",
-                "MOBILE DEVELOPMENT",
-                "UI / UX",
-                "DATABASE",
-                "VISUAL DESIGN",
-                "3D VISUALIZATION",
-                "MULTIMEDIA",
-              ].map((focus) => (
-                <span
-                  key={focus}
-                  className={`focus-pill rounded-full border px-3.5 py-2 text-[8px] font-semibold tracking-[0.12em] ${glass}`}
+          <div className="grid items-start gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
+            <Reveal>
+              <div className="mx-auto w-full max-w-[420px] lg:mx-0">
+                <div
+                  className={`about-frame group relative aspect-[3/4] overflow-hidden rounded-[30px] border p-2 backdrop-blur-2xl transition-transform duration-500 hover:-translate-y-2 ${glass}`}
                 >
-                  {focus}
-                </span>
-              ))}
-            </div>
-          </div>
+                  <div className="relative h-full w-full overflow-hidden rounded-[23px] bg-neutral-900">
+                    {!photoError ? (
+                      <img
+                        src="/images/profile/aldi.jpg"
+                        alt="Aldi Aldiansyah"
+                        onError={() => setPhotoError(true)}
+                        className="about-photo h-full w-full object-cover object-center"
+                      />
+                    ) : (
+                      <div className="flex h-full w-full flex-col items-center justify-center text-center text-white">
+                        <div className="text-5xl font-black">
+                          A
+                        </div>
 
-          {/* CLOSING STATEMENT */}
-          <div
-            className={`mt-10 border-l-2 pl-5 ${
-              darkMode ? "border-white/25" : "border-black/20"
-            }`}
-          >
-            <p className={`max-w-[680px] text-[13px] leading-7 ${soft}`}>
-              <span className="font-semibold">
-                I&apos;m still at the beginning of the journey.
-              </span>{" "}
-              Masih banyak hal yang ingin saya pelajari, eksperimen yang ingin
-              saya coba, dan project yang ingin saya bangun. ALDEV adalah ruang
-              untuk mendokumentasikan proses tersebut — satu project, satu
-              pengalaman, dan satu langkah pada satu waktu.
-            </p>
+                        <div className="mt-4 text-[9px] font-bold tracking-[0.2em] text-white/40">
+                          PHOTO NOT FOUND
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
+
+                    <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between text-white">
+                      <div>
+                        <div className="text-[10px] font-bold tracking-[0.2em]">
+                          ALDI ALDIANSYAH
+                        </div>
+
+                        <div className="mt-1 text-[8px] tracking-[0.15em] text-white/60">
+                          ALDEV / INFORMATICS
+                        </div>
+                      </div>
+
+                      <div className="text-[8px] tracking-[0.18em]">
+                        2026
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  className={`mt-4 flex items-center justify-between text-[8px] font-semibold tracking-[0.16em] ${muted}`}
+                >
+                  <span>PORTRAIT / 2026</span>
+                  <span>ALDEV</span>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={120}>
+              <div>
+                <div
+                  className={`mb-5 text-[9px] font-bold tracking-[0.2em] ${muted}`}
+                >
+                  PROFILE / WHO I AM
+                </div>
+
+                <h2 className="max-w-[850px] text-[clamp(2.8rem,6vw,6rem)] font-bold leading-[0.9] tracking-[-0.065em]">
+                  I&apos;m Aldi.
+                  <span className={`block ${muted}`}>
+                    I build, explore,
+                    <br />
+                    and keep learning.
+                  </span>
+                </h2>
+
+                <div className="mt-9 max-w-[760px] space-y-5">
+                  <p className={`text-[15px] leading-8 ${soft}`}>
+                    Saya Aldi Aldiansyah, siswa kelas XII PPLG 4
+                    di SMK Informatika CBI. Saya mulai mengenal
+                    dunia Informatika sejak 2024, dan sejak saat
+                    itu saya terus mencoba memahami bagaimana
+                    teknologi bisa digunakan untuk membuat sesuatu
+                    yang benar-benar berguna.
+                  </p>
+
+                  <p className={`text-[15px] leading-8 ${soft}`}>
+                    Awalnya saya banyak belajar dari website dan
+                    database. Dari sana, rasa penasaran saya
+                    berkembang ke mobile development, desktop
+                    application, UI/UX, desain visual, multimedia,
+                    sampai 3D visualization.
+                  </p>
+
+                  <p className={`text-[15px] leading-8 ${soft}`}>
+                    Pengalaman PKL di PT Riset Perkebunan Nusantara
+                    juga memberi saya kesempatan untuk melihat
+                    bagaimana kemampuan yang dipelajari di sekolah
+                    digunakan dalam lingkungan kerja nyata. Saya
+                    terlibat dalam pembuatan media visual, poster
+                    keamanan digital, visualisasi 3D Seed Counter,
+                    dokumentasi, hingga aktivitas di laboratorium.
+                  </p>
+
+                  <p className={`text-[15px] leading-8 ${soft}`}>
+                    Sekarang saya ingin terus berkembang sebagai
+                    seseorang yang tidak hanya bisa menulis kode,
+                    tetapi juga memahami bagaimana sebuah produk
+                    terlihat, terasa, dan bekerja.
+                  </p>
+                </div>
+
+                <div
+                  className={`mt-11 grid max-w-[760px] grid-cols-3 border-y ${border}`}
+                >
+                  <div
+                    className={`about-stat border-r py-6 pr-4 ${border}`}
+                  >
+                    <div className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-none tracking-[-0.06em]">
+                      2024
+                    </div>
+
+                    <div
+                      className={`mt-3 text-[8px] font-bold tracking-[0.16em] ${muted}`}
+                    >
+                      STARTED INFORMATICS
+                    </div>
+                  </div>
+
+                  <div
+                    className={`about-stat border-r px-4 py-6 ${border}`}
+                  >
+                    <div className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-none tracking-[-0.06em]">
+                      06
+                    </div>
+
+                    <div
+                      className={`mt-3 text-[8px] font-bold tracking-[0.16em] ${muted}`}
+                    >
+                      SELECTED PROJECTS
+                    </div>
+                  </div>
+
+                  <div className="about-stat py-6 pl-4">
+                    <div className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-none tracking-[-0.06em]">
+                      2026
+                    </div>
+
+                    <div
+                      className={`mt-3 text-[8px] font-bold tracking-[0.16em] ${muted}`}
+                    >
+                      INDUSTRIAL EXPERIENCE
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  className={`mt-8 grid max-w-[760px] gap-6 border-t pt-7 sm:grid-cols-3 ${border}`}
+                >
+                  <div>
+                    <div
+                      className={`text-[9px] tracking-[0.18em] ${muted}`}
+                    >
+                      SCHOOL
+                    </div>
+
+                    <div className="mt-2 text-[12px] font-medium">
+                      SMK INFORMATIKA CBI
+                    </div>
+                  </div>
+
+                  <div>
+                    <div
+                      className={`text-[9px] tracking-[0.18em] ${muted}`}
+                    >
+                      CLASS
+                    </div>
+
+                    <div className="mt-2 text-[12px] font-medium">
+                      XII PPLG 4
+                    </div>
+                  </div>
+
+                  <div>
+                    <div
+                      className={`text-[9px] tracking-[0.18em] ${muted}`}
+                    >
+                      IDENTITY
+                    </div>
+
+                    <div className="mt-2 text-[12px] font-medium">
+                      ALDEV / DIGITAL CREATOR
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-9">
+                  <div
+                    className={`mb-3 text-[8px] font-bold tracking-[0.2em] ${muted}`}
+                  >
+                    WHAT I&apos;M EXPLORING
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      "WEB DEVELOPMENT",
+                      "MOBILE DEVELOPMENT",
+                      "DESKTOP APPLICATION",
+                      "PYTHON",
+                      "UI / UX",
+                      "DATABASE",
+                      "VISUAL DESIGN",
+                      "3D VISUALIZATION",
+                      "MULTIMEDIA",
+                    ].map((focus) => (
+                      <span
+                        key={focus}
+                        className={`focus-pill rounded-full border px-3.5 py-2 text-[8px] font-semibold tracking-[0.12em] ${glass}`}
+                      >
+                        {focus}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div
+                  className={`mt-10 border-l-2 pl-5 ${
+                    darkMode
+                      ? "border-white/25"
+                      : "border-black/20"
+                  }`}
+                >
+                  <p
+                    className={`max-w-[680px] text-[13px] leading-7 ${soft}`}
+                  >
+                    <span className="font-semibold">
+                      I&apos;m still at the beginning of the
+                      journey.
+                    </span>{" "}
+                    Masih banyak hal yang ingin saya pelajari,
+                    eksperimen yang ingin saya coba, dan project
+                    yang ingin saya bangun. ALDEV adalah ruang
+                    untuk mendokumentasikan proses tersebut —
+                    satu project, satu pengalaman, dan satu
+                    langkah pada satu waktu.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
           </div>
         </div>
-      </Reveal>
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* ========================================================= */}
       {/* CONTACT */}
       {/* ========================================================= */}
 
-<section
-  id="contact"
-  className="scroll-mt-24 px-5 py-28 sm:px-8 lg:px-12"
->
-  <div className="mx-auto max-w-[1380px]">
-    <Reveal>
-      <div
-        className={`section-line border-t pt-5 ${border}`}
+      <section
+        id="contact"
+        className="scroll-mt-24 px-5 py-28 sm:px-8 lg:px-12"
       >
-        <div
-          className={`text-[10px] font-bold tracking-[0.25em] ${muted}`}
-        >
-          07 / CONTACT
+        <div className="mx-auto max-w-[1380px]">
+          <Reveal>
+            <div
+              className={`section-line border-t pt-5 ${border}`}
+            >
+              <div
+                className={`text-[10px] font-bold tracking-[0.25em] ${muted}`}
+              >
+                07 / CONTACT
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <div className="py-20">
+              <div
+                className={`mb-7 text-[9px] font-semibold tracking-[0.2em] ${muted}`}
+              >
+                AVAILABLE FOR CREATIVE & DEVELOPMENT WORK
+              </div>
+
+              <h2 className="contact-title max-w-[1050px] text-[clamp(3rem,8vw,8rem)] font-bold leading-[0.87] tracking-[-0.075em]">
+                Let&apos;s build
+                <span className={`block ${muted}`}>
+                  something.
+                </span>
+              </h2>
+
+              <div className="mt-14 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+                <a
+                  href="mailto:aldiansyh421@gmail.com"
+                  className={`email-button ${
+                    darkMode ? "dark-email" : ""
+                  } group inline-flex w-fit items-center gap-3 rounded-full px-6 py-3.5 text-[10px] font-bold tracking-[0.15em] hover:-translate-y-1`}
+                >
+                  EMAIL
+
+                  <span className="transition-transform duration-200 group-hover:translate-x-1">
+                    <ArrowIcon />
+                  </span>
+                </a>
+
+                <a
+                  href="https://instagram.com/_di1.a_"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open Instagram profile"
+                  className={`group inline-flex w-fit items-center gap-3 rounded-full border px-6 py-3.5 text-[10px] font-bold tracking-[0.15em] backdrop-blur-xl transition-[background-color,border-color,transform] duration-200 hover:-translate-y-1 ${glass} ${glassHover}`}
+                >
+                  INSTAGRAM
+
+                  <span className="transition-transform duration-200 group-hover:translate-x-1">
+                    <ExternalIcon />
+                  </span>
+                </a>
+
+                <a
+                  href="https://github.com/aldi421"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open Aldi Aldiansyah GitHub profile"
+                  className={`group inline-flex w-fit items-center gap-3 rounded-full border px-6 py-3.5 text-[10px] font-bold tracking-[0.15em] backdrop-blur-xl transition-[background-color,border-color,transform] duration-200 hover:-translate-y-1 ${glass} ${glassHover}`}
+                >
+                  GITHUB — ALDI421
+
+                  <span className="transition-transform duration-200 group-hover:translate-x-1">
+                    <ExternalIcon />
+                  </span>
+                </a>
+              </div>
+            </div>
+          </Reveal>
         </div>
-      </div>
-    </Reveal>
+      </section>
 
-    <Reveal delay={100}>
-      <div className="py-20">
-        <div
-          className={`mb-7 text-[9px] font-semibold tracking-[0.2em] ${muted}`}
-        >
-          AVAILABLE FOR CREATIVE & DEVELOPMENT WORK
-        </div>
-
-        <h2 className="contact-title max-w-[1050px] text-[clamp(3rem,8vw,8rem)] font-bold leading-[0.87] tracking-[-0.075em]">
-          Let&apos;s build
-          <span className={`block ${muted}`}>
-            something.
-          </span>
-        </h2>
-
-        <div className="mt-14 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-          {/* EMAIL */}
-          <a
-            href="mailto:aldiansyh421@gmail.com"
-            className={`email-button ${
-              darkMode ? "dark-email" : ""
-            } group inline-flex w-fit items-center gap-3 rounded-full px-6 py-3.5 text-[10px] font-bold tracking-[0.15em] hover:-translate-y-1`}
-          >
-            EMAIL
-
-            <span className="transition-transform duration-200 group-hover:translate-x-1">
-              <ArrowIcon />
-            </span>
-          </a>
-
-          {/* INSTAGRAM */}
-          <a
-            href="https://instagram.com/_di1.a_"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`group inline-flex w-fit items-center gap-3 rounded-full border px-6 py-3.5 text-[10px] font-bold tracking-[0.15em] backdrop-blur-xl transition-[background-color,border-color,transform] duration-200 hover:-translate-y-1 ${glass} ${glassHover}`}
-          >
-            INSTAGRAM
-
-            <span className="transition-transform duration-200 group-hover:translate-x-1">
-              <ExternalIcon />
-            </span>
-          </a>
-
-          {/* GITHUB */}
-          <a
-            href="https://github.com/aldi421"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open Aldi Aldiansyah GitHub profile"
-            className={`group inline-flex w-fit items-center gap-3 rounded-full border px-6 py-3.5 text-[10px] font-bold tracking-[0.15em] backdrop-blur-xl transition-[background-color,border-color,transform] duration-200 hover:-translate-y-1 ${glass} ${glassHover}`}
-          >
-            GITHUB — ALDI421
-
-            <span className="transition-transform duration-200 group-hover:translate-x-1">
-              <ExternalIcon />
-            </span>
-          </a>
-        </div>
-      </div>
-    </Reveal>
-  </div>
-</section>
       {/* ========================================================= */}
       {/* FOOTER */}
       {/* ========================================================= */}
