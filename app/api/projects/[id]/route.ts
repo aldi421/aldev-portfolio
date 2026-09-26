@@ -74,7 +74,7 @@ export async function PUT(
   }
 
   // kode PUT kamu yang sekarang...
-  xport async function PUT(
+  export async function PUT(
   request: Request,
   context: RouteContext
 ) {
