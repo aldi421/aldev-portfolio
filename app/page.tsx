@@ -24,194 +24,16 @@ type Project = {
   link?: string;
 };
 
-const projects: Project[] = [
-  {
-    number: "01",
-    title: "LaporFast",
-    category: "MOBILE APPLICATION",
-    description:
-      "Aplikasi pelaporan fasilitas sekolah yang dirancang untuk membuat proses penyampaian laporan menjadi lebih cepat, terstruktur, dan mudah dipantau.",
-    role: "Mobile App Development",
-    details: [
-      "Form pelaporan fasilitas sekolah",
-      "Penyimpanan data menggunakan SQLite",
-      "Interface mobile yang sederhana dan mudah digunakan",
-      "Alur laporan dibuat agar lebih terstruktur",
-    ],
-    tech: ["Flutter", "Dart", "SQLite", "Android"],
-    image: "/images/projects/laporfast/screenshot.jpg",
-    icon: "/images/projects/laporfast/icon.png",
-    type: "mobile",
-  },
-  {
-    number: "02",
-    title: "DuitFlow",
-    category: "MOBILE APPLICATION",
-    description:
-      "Aplikasi pencatatan keuangan pribadi yang membantu pengguna mengelola pemasukan dan pengeluaran melalui tampilan dashboard yang sederhana.",
-    role: "Mobile App Development",
-    details: [
-      "Pencatatan pemasukan dan pengeluaran",
-      "Dashboard ringkasan kondisi keuangan",
-      "Riwayat transaksi",
-      "Penyimpanan data secara lokal",
-    ],
-    tech: ["Flutter", "Dart", "SQLite", "Android"],
-    image: "/images/projects/duitflow/screenshot.jpg",
-    icon: "/images/projects/duitflow/icon.png",
-    type: "mobile",
-  },
-  {
-    number: "03",
-    title: "PPDB TADIKA MESRA",
-    category: "WEB APPLICATION",
-    description:
-      "Sistem penerimaan peserta didik baru berbasis web yang menangani proses pendaftaran calon siswa hingga pengecekan status secara online.",
-    role: "Full-stack Web Development",
-    details: [
-      "Form pendaftaran calon peserta didik",
-      "Database MySQL untuk menyimpan data pendaftar",
-      "Login dan dashboard administrator",
-      "Pengelolaan data pendaftar",
-      "Fitur pengecekan status pendaftaran",
-      "Website dapat diakses secara online",
-    ],
-    tech: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
-    image: "/images/projects/ppdb/screenshot.jpg",
-    type: "web",
-    link: "https://ppdb-tadika-mesra.freedev.app",
-  },
-  {
-    number: "04",
-    title: "ARSIP 01 — B.J. Habibie",
-    category: "DOCUMENTARY WEB",
-    description:
-      "Website dokumenter interaktif yang mengemas informasi mengenai perjalanan hidup dan kontribusi B.J. Habibie dalam bentuk visual storytelling.",
-    role: "Web Development & Visual Design",
-    details: [
-      "Konsep website bergaya dokumenter",
-      "Timeline perjalanan kehidupan tokoh",
-      "Penyusunan informasi secara kronologis",
-      "Visual storytelling dengan fotografi",
-      "Layout responsive untuk berbagai ukuran layar",
-      "Penggunaan JavaScript untuk interaksi halaman",
-    ],
-    tech: ["HTML", "CSS", "JavaScript"],
-    image: "/images/projects/habibie/screenshot.jpg",
-    type: "web",
-    link: "https://arsip-habibie.wuaze.com",
-  },
-  {
-    number: "05",
-    title: "Seed Counter",
-    category: "3D VISUALIZATION",
-    description:
-      "Visualisasi 3D konsep mesin Seed Counter untuk membantu menggambarkan bentuk, susunan, dan alur kerja perangkat penghitung benih kelapa sawit.",
-    role: "3D Modeling & Visualization",
-    details: [
-      "Pemodelan konsep perangkat Seed Counter",
-      "Visualisasi tray dan conveyor",
-      "Representasi komponen kamera dan pencahayaan",
-      "Visualisasi alur perpindahan benih",
-      "Rendering untuk kebutuhan presentasi dan dokumentasi",
-    ],
-    tech: ["Blender", "3D Modeling", "Rendering"],
-    image: "/images/projects/seed-counter/screenshot.jpg",
-    type: "3d",
-  },
-  {
-  number: "06",
-  title: "SmartDiskAnalyzer",
-  image: "/images/projects/smartdisk/analyzer.png",
-  category: "DESKTOP APPLICATION",
-    description:
-      "Aplikasi desktop untuk menganalisis dan mengelola penggunaan storage secara lebih terstruktur melalui visualisasi, analisis file, pencarian duplikat, dan berbagai utilitas pengelolaan disk.",
-    role: "Python Desktop Development",
-    details: [
-      "Dashboard analisis penggunaan storage",
-      "Scanner untuk menganalisis file dan folder",
-      "Duplicate Finder untuk menemukan file duplikat",
-      "Cleaner dan Organizer untuk pengelolaan file",
-      "Interface desktop menggunakan CustomTkinter",
-      "Project dikembangkan dan dikelola menggunakan Git & GitHub",
-    ],
-    tech: [
-      "Python",
-      "CustomTkinter",
-      "Git",
-      "GitHub",
-      "Desktop App",
-    ],
-    type: "desktop",
-    link: "https://github.com/aldi421/SmartDiskAnalyzer",
-  },
+const PROJECT_TYPES: ProjectType[] = [
+  "mobile",
+  "web",
+  "3d",
+  "desktop",
 ];
 
-const skillGroups = [
-  {
-    title: "DEVELOPMENT",
-    skills: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "PHP",
-      "Python",
-      "Git",
-      "GitHub",
-    ],
-  },
-  {
-    title: "MOBILE",
-    skills: [
-      "Flutter",
-      "Dart",
-      "Android",
-    ],
-  },
-  {
-    title: "DESKTOP",
-    skills: [
-      "Python",
-      "CustomTkinter",
-      "Desktop Application",
-    ],
-  },
-  {
-    title: "DATABASE",
-    skills: [
-      "MySQL",
-      "SQLite",
-      "CRUD",
-      "Authentication",
-    ],
-  },
-  {
-    title: "UI & DESIGN",
-    skills: [
-      "Canva",
-      "Figma",
-      "Stitch",
-      "UI Design",
-      "UX Design",
-      "Branding",
-    ],
-  },
-  {
-    title: "CREATIVE & 3D",
-    skills: [
-      "CapCut",
-      "Video Editing",
-      "Poster Design",
-      "Social Media Design",
-      "Blender",
-      "3D Modeling",
-      "Rendering",
-      "VS Code",
-      "XAMPP",
-      "Laragon",
-    ],
-  },
-];
+function isProjectType(value: string): value is ProjectType {
+  return PROJECT_TYPES.includes(value as ProjectType);
+}
 
 const timeline = [
   {
@@ -496,7 +318,9 @@ function DesktopPreview({
       />
 
       <div
-        className={`project-visual-label absolute left-7 top-7 z-20 text-[8px] font-bold tracking-[0.18em] ${darkMode ? "text-white/42" : "text-black/42"}`}
+        className={`project-visual-label absolute left-7 top-7 z-20 text-[8px] font-bold tracking-[0.18em] ${
+          darkMode ? "text-white/42" : "text-black/42"
+        }`}
       >
         DESKTOP / PREVIEW
       </div>
@@ -525,6 +349,7 @@ function DesktopPreview({
         >
           <div className="flex items-center gap-2">
             <BrowserDots />
+
             <span
               className={`text-[8px] font-bold tracking-[0.16em] ${
                 darkMode ? "text-white/60" : "text-black/60"
@@ -638,6 +463,7 @@ function DesktopPreview({
                   >
                     {label}
                   </div>
+
                   <div className="mt-2 text-sm font-bold">
                     {value}
                   </div>
@@ -676,9 +502,94 @@ export default function Home() {
   const [themeReady, setThemeReady] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [projectsLoading, setProjectsLoading] = useState(true);
+  const [projectsError, setProjectsError] = useState("");
+
   const [activeSection, setActiveSection] = useState("home");
   const [activeFilter, setActiveFilter] =
     useState<ProjectFilter>("all");
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadProjects() {
+      try {
+        setProjectsLoading(true);
+        setProjectsError("");
+
+        const response = await fetch("/api/projects", {
+          cache: "no-store",
+        });
+
+        if (!response.ok) {
+          throw new Error("Gagal mengambil project.");
+        }
+
+        const data = await response.json();
+
+        if (!data.success || !Array.isArray(data.projects)) {
+          throw new Error("Format data project tidak valid.");
+        }
+
+        const normalizedProjects: Project[] = data.projects
+          .filter(
+            (project: {
+              type: string;
+            }) => isProjectType(project.type)
+          )
+          .map(
+            (project: {
+              number: string;
+              title: string;
+              category: string;
+              description: string;
+              role: string;
+              details: string[];
+              tech: string[];
+              image: string;
+              icon: string | null;
+              type: string;
+              link: string | null;
+            }) => ({
+              number: project.number,
+              title: project.title,
+              category: project.category,
+              description: project.description,
+              role: project.role,
+              details: project.details,
+              tech: project.tech,
+              image: project.image || undefined,
+              icon: project.icon || undefined,
+              type: project.type as ProjectType,
+              link: project.link || undefined,
+            })
+          );
+
+        if (!cancelled) {
+          setProjects(normalizedProjects);
+        }
+      } catch (error) {
+        console.error("Portfolio project fetch error:", error);
+
+        if (!cancelled) {
+          setProjectsError(
+            "Project portfolio belum dapat dimuat dari database."
+          );
+        }
+      } finally {
+        if (!cancelled) {
+          setProjectsLoading(false);
+        }
+      }
+    }
+
+    loadProjects();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     const savedTheme =
@@ -885,8 +796,8 @@ export default function Home() {
           background: ${darkMode ? "#000000" : "#ffffff"};
           color: ${darkMode ? "#ffffff" : "#000000"};
           transition:
-            background-color 240ms ease,
-            color 240ms ease;
+            background-color 140ms ease,
+            color 140ms ease;
         }
 
         * {
@@ -898,18 +809,26 @@ export default function Home() {
           color: ${darkMode ? "#000000" : "#ffffff"};
         }
 
+        /* ========================================================= */
+        /* LIGHTWEIGHT REVEAL */
+        /* ========================================================= */
+
         .reveal {
           opacity: 0;
-          transform: translateY(28px);
+          transform: translateY(14px);
           transition:
-            opacity 650ms cubic-bezier(0.22, 1, 0.36, 1),
-            transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+            opacity 380ms ease-out,
+            transform 380ms ease-out;
         }
 
         .reveal-visible {
           opacity: 1;
           transform: translateY(0);
         }
+
+        /* ========================================================= */
+        /* HERO */
+        /* ========================================================= */
 
         .hero-grid {
           position: absolute;
@@ -971,12 +890,12 @@ export default function Home() {
 
         .hero-brand {
           transition:
-            opacity 220ms ease,
-            transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+            opacity 140ms ease,
+            transform 160ms ease-out;
         }
 
         .hero-brand:hover {
-          transform: translateX(7px);
+          transform: translateX(3px);
         }
 
         .hero-brand-dot {
@@ -989,18 +908,22 @@ export default function Home() {
           background: currentColor;
         }
 
+        /* ========================================================= */
+        /* NAVBAR */
+        /* ========================================================= */
+
         .nav-shell {
           transform: translateY(0);
           transition:
-            height 280ms cubic-bezier(0.22, 1, 0.36, 1),
-            background-color 240ms ease,
-            border-color 240ms ease,
-            box-shadow 280ms ease,
-            transform 280ms ease;
+            height 160ms ease-out,
+            background-color 140ms ease,
+            border-color 140ms ease,
+            box-shadow 160ms ease,
+            transform 160ms ease;
         }
 
         .nav-shell.scrolled {
-          transform: translateY(-2px);
+          transform: translateY(-1px);
         }
 
         .nav-link {
@@ -1019,8 +942,8 @@ export default function Home() {
           background: currentColor;
           opacity: 0.55;
           transition:
-            transform 220ms ease,
-            opacity 220ms ease;
+            transform 140ms ease,
+            opacity 140ms ease;
         }
 
         .nav-link:hover::after,
@@ -1034,14 +957,13 @@ export default function Home() {
         }
 
         .mobile-menu {
-          animation: mobileMenuIn 220ms
-            cubic-bezier(0.22, 1, 0.36, 1);
+          animation: mobileMenuIn 140ms ease-out;
         }
 
         @keyframes mobileMenuIn {
           from {
             opacity: 0;
-            transform: translateY(-8px);
+            transform: translateY(-4px);
           }
 
           to {
@@ -1049,6 +971,10 @@ export default function Home() {
             transform: translateY(0);
           }
         }
+
+        /* ========================================================= */
+        /* GLASS */
+        /* ========================================================= */
 
         .glass-shine {
           position: relative;
@@ -1063,39 +989,47 @@ export default function Home() {
           background: linear-gradient(
             115deg,
             transparent 22%,
-            rgba(255,255,255,0.055) 48%,
+            rgba(255,255,255,0.045) 48%,
             transparent 72%
           );
           transform: translateX(-120%);
-          transition: transform 650ms ease;
+          transition: transform 340ms ease;
         }
 
         .glass-shine:hover::after {
           transform: translateX(120%);
         }
 
+        /* ========================================================= */
+        /* THEME TOGGLE */
+        /* ========================================================= */
+
         .theme-toggle {
           transition:
-            background-color 180ms ease,
-            border-color 180ms ease,
-            transform 180ms ease,
-            box-shadow 180ms ease;
+            background-color 120ms ease,
+            border-color 120ms ease,
+            opacity 120ms ease;
         }
 
         .theme-toggle:hover {
-          transform: scale(1.035);
-          box-shadow: 0 10px 30px
-            ${darkMode
-              ? "rgba(255,255,255,0.08)"
-              : "rgba(0,0,0,0.08)"};
+          opacity: 0.96;
+        }
+
+        .theme-toggle:active {
+          transform: scale(0.98);
+          transition: transform 70ms ease;
+        }
+
+        .theme-toggle:focus-visible {
+          outline: 2px solid currentColor;
+          outline-offset: 3px;
         }
 
         .theme-knob {
           transition:
-            transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
-            background-color 300ms cubic-bezier(0.22, 1, 0.36, 1),
-            color 300ms cubic-bezier(0.22, 1, 0.36, 1),
-            box-shadow 300ms cubic-bezier(0.22, 1, 0.36, 1);
+            transform 120ms ease-out,
+            background-color 110ms ease,
+            color 110ms ease;
           will-change: transform;
         }
 
@@ -1104,30 +1038,33 @@ export default function Home() {
           align-items: center;
           justify-content: center;
           transition:
-            opacity 220ms ease,
-            transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
-          will-change: transform, opacity;
+            opacity 90ms ease,
+            transform 90ms ease;
         }
 
         .theme-knob-icon.dark {
-          transform: rotate(0deg) scale(1);
+          transform: scale(1);
           opacity: 1;
         }
 
         .theme-knob-icon.light {
-          transform: rotate(-18deg) scale(0.72);
+          transform: scale(0.82);
           opacity: 0;
         }
 
         .theme-knob-icon.dark-mode-off {
-          transform: rotate(18deg) scale(0.72);
+          transform: scale(0.82);
           opacity: 0;
         }
 
         .theme-knob-icon.light-mode-on {
-          transform: rotate(0deg) scale(1);
+          transform: scale(1);
           opacity: 1;
         }
+
+        /* ========================================================= */
+        /* BUTTONS */
+        /* ========================================================= */
 
         .email-button,
         .project-open-button {
@@ -1135,10 +1072,10 @@ export default function Home() {
           color: #ffffff !important;
           border: 1px solid #000000;
           transition:
-            transform 180ms ease,
-            background-color 180ms ease,
-            border-color 180ms ease,
-            box-shadow 180ms ease;
+            transform 120ms ease-out,
+            background-color 120ms ease,
+            border-color 120ms ease,
+            box-shadow 120ms ease;
         }
 
         .email-button:hover,
@@ -1146,7 +1083,7 @@ export default function Home() {
           background: #1f1f1f;
           color: #ffffff !important;
           border-color: #1f1f1f;
-          box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+          box-shadow: 0 7px 18px rgba(0,0,0,0.12);
         }
 
         .email-button.dark-email,
@@ -1161,7 +1098,7 @@ export default function Home() {
           background: #e4e4e7;
           color: #000000 !important;
           border-color: #e4e4e7;
-          box-shadow: 0 12px 30px rgba(255,255,255,0.08);
+          box-shadow: 0 7px 18px rgba(255,255,255,0.06);
         }
 
         .hero-title,
@@ -1196,14 +1133,18 @@ export default function Home() {
           opacity: 0.35;
           transform-origin: left;
           transition:
-            width 400ms ease,
-            opacity 300ms ease;
+            width 220ms ease,
+            opacity 160ms ease;
         }
 
         .hero-name-wrap:hover::after {
-          width: 118px;
-          opacity: 0.7;
+          width: 100px;
+          opacity: 0.6;
         }
+
+        /* ========================================================= */
+        /* SECTION */
+        /* ========================================================= */
 
         .section-line {
           position: relative;
@@ -1221,80 +1162,84 @@ export default function Home() {
           opacity: 0.3;
         }
 
+        /* ========================================================= */
+        /* PROJECT */
+        /* ========================================================= */
+
         .project-image {
           transition:
-            transform 750ms cubic-bezier(0.22, 1, 0.36, 1),
-            filter 650ms ease;
+            transform 360ms ease-out,
+            filter 260ms ease;
         }
 
         .project-frame:hover .project-image {
-          transform: scale(1.035);
-          filter: contrast(1.045);
+          transform: scale(1.018);
+          filter: contrast(1.02);
         }
 
         .project-frame {
           isolation: isolate;
           transition:
-            transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
-            border-color 240ms ease,
-            background-color 240ms ease,
-            box-shadow 320ms ease;
+            transform 180ms ease-out,
+            border-color 140ms ease,
+            background-color 140ms ease,
+            box-shadow 180ms ease;
         }
 
         .project-frame:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 30px 85px
+          transform: translateY(-2px);
+          box-shadow: 0 18px 50px
             ${darkMode
-              ? "rgba(0,0,0,0.38)"
-              : "rgba(0,0,0,0.09)"};
+              ? "rgba(0,0,0,0.28)"
+              : "rgba(0,0,0,0.06)"};
         }
 
         .project-number {
           transition:
-            opacity 240ms ease,
-            transform 240ms ease;
+            opacity 140ms ease,
+            transform 140ms ease;
         }
 
         .project-frame:hover .project-number {
-          transform: translateX(4px);
+          transform: translateX(2px);
         }
 
         .project-status {
           transition:
-            background-color 180ms ease,
-            border-color 180ms ease,
-            transform 180ms ease;
+            background-color 120ms ease,
+            border-color 120ms ease,
+            transform 120ms ease;
         }
 
         .project-frame:hover .project-status {
-          transform: translateY(-2px);
+          transform: translateY(-1px);
         }
 
         .project-visual-label {
           transition:
-            opacity 220ms ease,
-            transform 220ms ease;
+            opacity 140ms ease,
+            transform 140ms ease;
         }
 
         .project-frame:hover .project-visual-label {
           opacity: 1;
-          transform: translateY(-2px);
+          transform: translateY(-1px);
         }
 
         .project-tech {
           transition:
-            background-color 180ms ease,
-            border-color 180ms ease,
-            transform 180ms ease,
-            box-shadow 180ms ease;
+            background-color 120ms ease,
+            border-color 120ms ease,
+            transform 120ms ease,
+            box-shadow 120ms ease;
         }
 
         .project-tech:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 22px
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px
             ${darkMode
-              ? "rgba(255,255,255,0.05)"
-              : "rgba(0,0,0,0.05)"};
+              ? "rgba(255,255,255,0.03)"
+              : "rgba(0,0,0,0.03)"};
         }
 
         .project-progress {
@@ -1312,8 +1257,7 @@ export default function Home() {
           background: currentColor;
           opacity: 0.5;
           transform: translateX(-140%);
-          transition:
-            transform 750ms cubic-bezier(0.22, 1, 0.36, 1);
+          transition: transform 340ms ease-out;
         }
 
         article:hover .project-progress::after {
@@ -1322,80 +1266,92 @@ export default function Home() {
 
         .project-corner {
           transition:
-            opacity 250ms ease,
-            transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+            opacity 140ms ease,
+            transform 160ms ease-out;
         }
 
         .project-frame:hover .project-corner {
           opacity: 1;
-          transform: scale(1.05);
+          transform: scale(1.02);
         }
 
         .project-browser-bar {
           transition:
-            background-color 220ms ease,
-            border-color 220ms ease;
+            background-color 140ms ease,
+            border-color 140ms ease;
         }
 
         .project-meta-cell {
           transition:
-            background-color 200ms ease,
-            padding 200ms ease;
+            background-color 120ms ease,
+            padding 120ms ease;
         }
 
         .project-meta-cell:hover {
-          padding-left: 5px;
+          padding-left: 4px;
         }
+
+        /* ========================================================= */
+        /* FILTER */
+        /* ========================================================= */
 
         .filter-pill {
           position: relative;
           overflow: hidden;
           transition:
-            background-color 180ms ease,
-            color 180ms ease,
-            border-color 180ms ease,
-            transform 180ms ease,
-            box-shadow 180ms ease;
+            background-color 120ms ease,
+            color 120ms ease,
+            border-color 120ms ease,
+            transform 120ms ease,
+            box-shadow 120ms ease;
         }
 
         .filter-pill:hover {
-          transform: translateY(-2px);
+          transform: translateY(-1px);
         }
 
         .filter-pill-active {
-          box-shadow: 0 8px 24px
+          box-shadow: 0 5px 14px
             ${darkMode
-              ? "rgba(255,255,255,0.10)"
-              : "rgba(0,0,0,0.10)"};
+              ? "rgba(255,255,255,0.06)"
+              : "rgba(0,0,0,0.06)"};
         }
+
+        /* ========================================================= */
+        /* EXPERIENCE */
+        /* ========================================================= */
 
         .experience-item {
           transition:
-            padding-left 250ms ease,
-            border-color 250ms ease;
+            padding-left 140ms ease,
+            border-color 140ms ease;
         }
 
         .experience-item:hover {
-          padding-left: 8px;
+          padding-left: 4px;
         }
 
         .experience-tag {
           transition:
-            transform 180ms ease,
-            background-color 180ms ease;
+            transform 120ms ease,
+            background-color 120ms ease;
         }
 
         .experience-item:hover .experience-tag {
-          transform: translateX(3px);
+          transform: translateX(1px);
         }
+
+        /* ========================================================= */
+        /* SKILLS */
+        /* ========================================================= */
 
         .skill-card {
           position: relative;
           transition:
-            transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
-            background-color 240ms ease,
-            border-color 240ms ease,
-            box-shadow 300ms ease;
+            transform 180ms ease-out,
+            background-color 140ms ease,
+            border-color 140ms ease,
+            box-shadow 180ms ease;
         }
 
         .skill-card::before {
@@ -1408,35 +1364,39 @@ export default function Home() {
           background: currentColor;
           opacity: 0.35;
           transition:
-            width 300ms ease,
-            opacity 300ms ease;
+            width 180ms ease,
+            opacity 160ms ease;
         }
 
         .skill-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 24px 65px
+          transform: translateY(-2px);
+          box-shadow: 0 14px 40px
             ${darkMode
-              ? "rgba(0,0,0,0.32)"
-              : "rgba(0,0,0,0.07)"};
+              ? "rgba(0,0,0,0.22)"
+              : "rgba(0,0,0,0.045)"};
         }
 
         .skill-card:hover::before {
-          width: 72px;
-          opacity: 0.65;
+          width: 60px;
+          opacity: 0.55;
         }
 
         .skill-chip,
         .focus-pill {
           transition:
-            transform 180ms ease,
-            background-color 180ms ease,
-            border-color 180ms ease;
+            transform 120ms ease,
+            background-color 120ms ease,
+            border-color 120ms ease;
         }
 
         .skill-chip:hover,
         .focus-pill:hover {
-          transform: translateY(-2px);
+          transform: translateY(-1px);
         }
+
+        /* ========================================================= */
+        /* TIMELINE */
+        /* ========================================================= */
 
         .timeline-item {
           position: relative;
@@ -1444,70 +1404,86 @@ export default function Home() {
 
         .timeline-marker {
           transition:
-            transform 220ms ease,
-            background-color 220ms ease,
-            border-color 220ms ease;
+            transform 140ms ease,
+            background-color 140ms ease,
+            border-color 140ms ease;
         }
 
         .timeline-item:hover .timeline-marker {
-          transform: scale(1.18);
+          transform: scale(1.08);
         }
 
         .timeline-title {
-          transition: transform 220ms ease;
+          transition: transform 140ms ease;
         }
 
         .timeline-item:hover .timeline-title {
-          transform: translateX(4px);
+          transform: translateX(2px);
         }
+
+        /* ========================================================= */
+        /* ABOUT */
+        /* ========================================================= */
 
         .about-photo {
           transition:
-            transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
-            filter 500ms ease;
+            transform 360ms ease-out,
+            filter 260ms ease;
         }
 
         .about-frame:hover .about-photo {
-          transform: scale(1.035);
-          filter: contrast(1.03);
+          transform: scale(1.018);
+          filter: contrast(1.02);
         }
 
         .about-stat {
           transition:
-            transform 220ms ease,
-            opacity 220ms ease;
+            transform 140ms ease,
+            opacity 140ms ease;
         }
 
         .about-stat:hover {
-          transform: translateY(-3px);
+          transform: translateY(-1px);
         }
+
+        /* ========================================================= */
+        /* CONTACT */
+        /* ========================================================= */
 
         .contact-link {
           transition:
-            transform 180ms ease,
-            opacity 180ms ease;
+            transform 120ms ease,
+            opacity 120ms ease;
         }
 
         .contact-link:hover {
-          transform: translateX(4px);
+          transform: translateX(2px);
         }
+
+        /* ========================================================= */
+        /* BACK TO TOP */
+        /* ========================================================= */
 
         .back-top {
           transition:
-            opacity 220ms ease,
-            transform 220ms ease,
-            background-color 180ms ease,
-            border-color 180ms ease,
-            box-shadow 180ms ease;
+            opacity 140ms ease,
+            transform 140ms ease,
+            background-color 120ms ease,
+            border-color 120ms ease,
+            box-shadow 120ms ease;
         }
 
         .back-top:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 14px 35px
+          transform: translateY(-1px);
+          box-shadow: 0 8px 20px
             ${darkMode
-              ? "rgba(255,255,255,0.09)"
-              : "rgba(0,0,0,0.09)"};
+              ? "rgba(255,255,255,0.05)"
+              : "rgba(0,0,0,0.05)"};
         }
+
+        /* ========================================================= */
+        /* MOBILE */
+        /* ========================================================= */
 
         @media (max-width: 768px) {
           .hero-name-wrap::after {
@@ -1516,15 +1492,15 @@ export default function Home() {
           }
 
           .hero-name-wrap:hover::after {
-            width: 75px;
+            width: 70px;
           }
 
           .project-frame:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
           }
 
           .experience-item:hover {
-            padding-left: 3px;
+            padding-left: 2px;
           }
         }
 
@@ -1548,7 +1524,7 @@ export default function Home() {
           }
 
           .reveal {
-            transform: translateY(20px);
+            transform: translateY(12px);
           }
 
           .project-frame {
@@ -1556,9 +1532,13 @@ export default function Home() {
           }
 
           .project-frame:hover {
-            transform: translateY(-3px);
+            transform: translateY(-1px);
           }
         }
+
+        /* ========================================================= */
+        /* REDUCED MOTION */
+        /* ========================================================= */
 
         @media (prefers-reduced-motion: reduce) {
           html {
@@ -1630,7 +1610,7 @@ export default function Home() {
             scrolled ? "h-[58px]" : "h-[66px]"
           } max-w-[1380px] items-center justify-between rounded-full border px-4 backdrop-blur-2xl sm:px-6 ${glass} ${
             scrolled
-              ? "shadow-[0_18px_55px_rgba(0,0,0,0.25)]"
+              ? "shadow-[0_18px_55px_rgba(0,0,0,0.20)]"
               : ""
           }`}
         >
@@ -1641,7 +1621,7 @@ export default function Home() {
             aria-label="ALDEV home"
           >
             <div
-              className={`flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border transition-transform duration-300 group-hover:scale-105 ${
+              className={`flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border transition-transform duration-150 group-hover:scale-[1.02] ${
                 darkMode
                   ? "border-white/10"
                   : "border-black/10"
@@ -1691,7 +1671,7 @@ export default function Home() {
                   href={`#${item.id}`}
                   className={`nav-link ${
                     active ? "active" : ""
-                  } text-[10px] font-semibold tracking-[0.17em] transition-opacity duration-200 hover:opacity-55 ${soft}`}
+                  } text-[10px] font-semibold tracking-[0.17em] transition-opacity duration-100 hover:opacity-55 ${soft}`}
                 >
                   {item.label}
                 </a>
@@ -1716,6 +1696,10 @@ export default function Home() {
               <MenuIcon open={mobileMenuOpen} />
             </button>
 
+            {/* ===================================================== */}
+            {/* THEME TOGGLE — SNAP STYLE */}
+            {/* ===================================================== */}
+
             <button
               type="button"
               onClick={() =>
@@ -1732,8 +1716,8 @@ export default function Home() {
               <span
                 className={`theme-knob absolute flex h-8 w-8 items-center justify-center rounded-full ${
                   darkMode
-                    ? "translate-x-7 bg-white text-black shadow-[0_4px_14px_rgba(255,255,255,0.10)]"
-                    : "translate-x-0 bg-black text-white shadow-[0_4px_14px_rgba(0,0,0,0.12)]"
+                    ? "translate-x-7 bg-white text-black"
+                    : "translate-x-0 bg-black text-white"
                 }`}
               >
                 <span
@@ -1757,7 +1741,7 @@ export default function Home() {
                 </span>
               </span>
 
-              <span className="flex w-full justify-between px-[7px] text-[9px] opacity-35">
+              <span className="flex w-full items-center justify-between px-[7px] text-[9px] opacity-30">
                 <span>☼</span>
                 <span>◐</span>
               </span>
@@ -1779,7 +1763,7 @@ export default function Home() {
                     key={item.id}
                     href={`#${item.id}`}
                     onClick={closeMobileMenu}
-                    className={`flex items-center justify-between rounded-[18px] px-5 py-4 text-[10px] font-bold tracking-[0.18em] transition-colors ${
+                    className={`flex items-center justify-between rounded-[18px] px-5 py-4 text-[10px] font-bold tracking-[0.18em] transition-colors duration-100 ${
                       active
                         ? darkMode
                           ? "bg-white text-black"
@@ -1847,7 +1831,7 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <Reveal delay={70}>
+          <Reveal delay={40}>
             <div
               className={`mb-3 text-[clamp(4.8rem,12vw,11rem)] font-black leading-[0.78] tracking-[-0.09em] ${text}`}
             >
@@ -1857,7 +1841,7 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <Reveal delay={130}>
+          <Reveal delay={70}>
             <div
               className={`mb-6 text-[9px] font-medium tracking-[0.22em] ${muted}`}
             >
@@ -1865,7 +1849,7 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <Reveal delay={180}>
+          <Reveal delay={100}>
             <div className="hero-name-wrap">
               <h1 className="hero-title max-w-[1150px] text-[clamp(3rem,7.8vw,7.8rem)] font-bold leading-[0.84] tracking-[-0.075em]">
                 ALDI
@@ -1876,7 +1860,7 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <Reveal delay={260}>
+          <Reveal delay={140}>
             <div className="mt-12 flex flex-col gap-9 lg:flex-row lg:items-end lg:justify-between">
               <div>
                 <div
@@ -1896,18 +1880,18 @@ export default function Home() {
 
               <a
                 href="#work"
-                className={`group flex w-fit items-center gap-4 rounded-full border px-6 py-3.5 text-[10px] font-bold tracking-[0.18em] backdrop-blur-xl transition-[background-color,border-color,transform] duration-200 hover:-translate-y-1 ${glass} ${glassHover}`}
+                className={`group flex w-fit items-center gap-4 rounded-full border px-6 py-3.5 text-[10px] font-bold tracking-[0.18em] backdrop-blur-xl transition-[background-color,border-color,transform] duration-120 hover:-translate-y-0.5 ${glass} ${glassHover}`}
               >
                 EXPLORE WORK
 
-                <span className="transition-transform duration-200 group-hover:translate-x-1">
+                <span className="transition-transform duration-100 group-hover:translate-x-1">
                   <ArrowIcon />
                 </span>
               </a>
             </div>
           </Reveal>
 
-          <Reveal delay={330}>
+          <Reveal delay={180}>
             <div className={`mt-20 border-t pt-6 ${border}`}>
               <div className="mb-5 flex items-center justify-between">
                 <span
@@ -1963,7 +1947,7 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <Reveal delay={100}>
+          <Reveal delay={50}>
             <div>
               <h2 className="max-w-[900px] text-[clamp(2.2rem,5vw,4.8rem)] font-semibold leading-[1.02] tracking-[-0.055em]">
                 Building things that are
@@ -2024,7 +2008,7 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <Reveal delay={80}>
+          <Reveal delay={50}>
             <div
               className={`mb-16 flex flex-col gap-5 border-y py-5 sm:flex-row sm:items-center sm:justify-between ${border}`}
             >
@@ -2085,9 +2069,42 @@ export default function Home() {
             </div>
           </Reveal>
 
+          {projectsLoading && (
+            <div
+              className={`mb-16 rounded-[28px] border p-12 text-center ${glass}`}
+            >
+              <div
+                className={`text-[10px] font-bold tracking-[0.2em] ${muted}`}
+              >
+                LOADING PROJECTS
+              </div>
+
+              <p className={`mt-3 text-sm ${soft}`}>
+                Mengambil data project dari database...
+              </p>
+            </div>
+          )}
+
+          {!projectsLoading && projectsError && (
+            <div
+              className={`mb-16 rounded-[28px] border p-12 text-center ${glass}`}
+            >
+              <div
+                className={`text-[10px] font-bold tracking-[0.2em] ${muted}`}
+              >
+                DATABASE ERROR
+              </div>
+
+              <p className={`mt-3 text-sm ${soft}`}>
+                {projectsError}
+              </p>
+            </div>
+          )}
+
           <div className="space-y-32">
             {filteredProjects.map((project, index) => {
               const reversed = index % 2 === 1;
+
               const originalIndex =
                 projects.findIndex(
                   (item) =>
@@ -2097,7 +2114,7 @@ export default function Home() {
               return (
                 <Reveal
                   key={project.title}
-                  delay={(index % 2) * 80}
+                  delay={(index % 2) * 50}
                 >
                   <article className="group">
                     <div
@@ -2201,7 +2218,7 @@ export default function Home() {
                               )}
                             </div>
 
-                            <div className="relative z-10 h-[475px] w-[238px] overflow-hidden rounded-[36px] border-[7px] border-black bg-black shadow-[0_35px_90px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:translate-y-[-4px] sm:h-[535px] sm:w-[268px]">
+                            <div className="relative z-10 h-[475px] w-[238px] overflow-hidden rounded-[36px] border-[7px] border-black bg-black shadow-[0_35px_90px_rgba(0,0,0,0.5)] transition-transform duration-200 group-hover:-translate-y-[2px] sm:h-[535px] sm:w-[268px]">
                               <div className="absolute left-1/2 top-2 z-20 h-5 w-20 -translate-x-1/2 rounded-full bg-black" />
 
                               {project.image && (
@@ -2236,66 +2253,68 @@ export default function Home() {
                             </div>
                           </div>
                         ) : project.type === "desktop" ? (
-  <div
-    className={`relative aspect-[16/10] overflow-hidden ${
-      darkMode ? "bg-[#0b0b0b]" : "bg-[#f1f1f1]"
-    }`}
-  >
-    <div
-      className={`project-browser-bar absolute left-0 right-0 top-0 z-20 flex h-10 items-center gap-4 border-b px-5 backdrop-blur-xl ${
-        darkMode
-          ? "border-white/10 bg-black/45 text-white"
-          : "border-black/10 bg-white/55 text-black"
-      }`}
-    >
-      <BrowserDots />
+                          <div
+                            className={`relative aspect-[16/10] overflow-hidden ${
+                              darkMode
+                                ? "bg-[#0b0b0b]"
+                                : "bg-[#f1f1f1]"
+                            }`}
+                          >
+                            <div
+                              className={`project-browser-bar absolute left-0 right-0 top-0 z-20 flex h-10 items-center gap-4 border-b px-5 backdrop-blur-xl ${
+                                darkMode
+                                  ? "border-white/10 bg-black/45 text-white"
+                                  : "border-black/10 bg-white/55 text-black"
+                              }`}
+                            >
+                              <BrowserDots />
 
-      <div className="hidden flex-1 items-center justify-center sm:flex">
-        <div
-          className={`w-[55%] rounded-full border px-4 py-1.5 text-[7px] tracking-[0.12em] ${
-            darkMode
-              ? "border-white/10 bg-white/[0.04] text-white/35"
-              : "border-black/10 bg-black/[0.025] text-black/35"
-          }`}
-        >
-          SMARTDISK ANALYZER / DESKTOP PREVIEW
-        </div>
-      </div>
-    </div>
+                              <div className="hidden flex-1 items-center justify-center sm:flex">
+                                <div
+                                  className={`w-[55%] rounded-full border px-4 py-1.5 text-[7px] tracking-[0.12em] ${
+                                    darkMode
+                                      ? "border-white/10 bg-white/[0.04] text-white/35"
+                                      : "border-black/10 bg-black/[0.025] text-black/35"
+                                  }`}
+                                >
+                                  SMARTDISK ANALYZER / DESKTOP PREVIEW
+                                </div>
+                              </div>
+                            </div>
 
-    {project.image && (
-      <img
-        src={project.image}
-        alt={`${project.title} project preview`}
-        className="project-image h-full w-full object-cover pt-10"
-      />
-    )}
+                            {project.image && (
+                              <img
+                                src={project.image}
+                                alt={`${project.title} project preview`}
+                                className="project-image h-full w-full object-cover pt-10"
+                              />
+                            )}
 
-    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-black/5" />
+                            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-black/5" />
 
-    <div className="absolute left-6 top-16 z-10">
-      <span className="rounded-full border border-white/15 bg-black/40 px-4 py-2 text-[8px] font-semibold tracking-[0.16em] text-white backdrop-blur-xl">
-        DESKTOP APPLICATION
-      </span>
-    </div>
+                            <div className="absolute left-6 top-16 z-10">
+                              <span className="rounded-full border border-white/15 bg-black/40 px-4 py-2 text-[8px] font-semibold tracking-[0.16em] text-white backdrop-blur-xl">
+                                DESKTOP APPLICATION
+                              </span>
+                            </div>
 
-    <div className="absolute bottom-6 left-6 right-6 z-10 flex items-end justify-between text-white">
-      <div>
-        <div className="text-[9px] font-bold tracking-[0.16em]">
-          SMARTDISK ANALYZER
-        </div>
+                            <div className="absolute bottom-6 left-6 right-6 z-10 flex items-end justify-between text-white">
+                              <div>
+                                <div className="text-[9px] font-bold tracking-[0.16em]">
+                                  {project.title}
+                                </div>
 
-        <div className="mt-1 text-[8px] tracking-[0.12em] text-white/55">
-          PYTHON / CUSTOMTKINTER
-        </div>
-      </div>
+                                <div className="mt-1 text-[8px] tracking-[0.12em] text-white/55">
+                                  {project.role}
+                                </div>
+                              </div>
 
-      <span className="text-[8px] tracking-[0.16em] text-white/55">
-        {project.number}
-      </span>
-    </div>
-  </div>
-) : (
+                              <span className="text-[8px] tracking-[0.16em] text-white/55">
+                                {project.number}
+                              </span>
+                            </div>
+                          </div>
+                        ) : (
                           <div
                             className={`relative aspect-[16/10] overflow-hidden ${
                               project.type === "3d"
@@ -2509,13 +2528,13 @@ export default function Home() {
                                   darkMode
                                     ? "dark-project-open"
                                     : ""
-                                } group inline-flex items-center gap-3 rounded-full px-5 py-3 text-[10px] font-bold tracking-[0.16em] hover:-translate-y-1`}
+                                } group inline-flex items-center gap-3 rounded-full px-5 py-3 text-[10px] font-bold tracking-[0.16em] hover:-translate-y-0.5`}
                               >
                                 {project.type === "desktop"
                                   ? "VIEW GITHUB"
                                   : "OPEN PROJECT"}
 
-                                <span className="transition-transform duration-200 group-hover:translate-x-1">
+                                <span className="transition-transform duration-100 group-hover:translate-x-1">
                                   <ExternalIcon />
                                 </span>
                               </a>
@@ -2554,23 +2573,25 @@ export default function Home() {
             })}
           </div>
 
-          {filteredProjects.length === 0 && (
-            <div
-              className={`rounded-[28px] border p-12 text-center ${glass}`}
-            >
+          {!projectsLoading &&
+            !projectsError &&
+            filteredProjects.length === 0 && (
               <div
-                className={`text-[10px] font-bold tracking-[0.2em] ${muted}`}
+                className={`rounded-[28px] border p-12 text-center ${glass}`}
               >
-                NO PROJECTS
+                <div
+                  className={`text-[10px] font-bold tracking-[0.2em] ${muted}`}
+                >
+                  NO PROJECTS
+                </div>
+
+                <p className={`mt-3 text-sm ${soft}`}>
+                  Belum ada project pada kategori ini.
+                </p>
               </div>
+            )}
 
-              <p className={`mt-3 text-sm ${soft}`}>
-                Belum ada project pada kategori ini.
-              </p>
-            </div>
-          )}
-
-          <Reveal delay={100}>
+          <Reveal delay={50}>
             <div
               className={`mt-20 flex flex-col gap-5 border-t pt-6 sm:flex-row sm:items-center sm:justify-between ${border}`}
             >
@@ -2586,7 +2607,7 @@ export default function Home() {
               >
                 START A CONVERSATION
 
-                <span className="transition-transform duration-200 group-hover:translate-x-1">
+                <span className="transition-transform duration-100 group-hover:translate-x-1">
                   <ArrowIcon />
                 </span>
               </a>
@@ -2629,7 +2650,7 @@ export default function Home() {
               </h2>
             </Reveal>
 
-            <Reveal delay={100}>
+            <Reveal delay={50}>
               <div>
                 <div
                   className={`experience-item border-b py-8 ${border}`}
@@ -2740,7 +2761,7 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <Reveal delay={60}>
+          <Reveal delay={40}>
             <div className="mb-12 max-w-[760px]">
               <h2 className="text-[clamp(2.8rem,6vw,6rem)] font-bold leading-[0.9] tracking-[-0.065em]">
                 Toolbox.
@@ -2757,10 +2778,66 @@ export default function Home() {
           </Reveal>
 
           <div className="grid gap-5 md:grid-cols-2">
-            {skillGroups.map((group, index) => (
+            {[
+              {
+                title: "WEB DEVELOPMENT",
+                skills: [
+                  "HTML",
+                  "CSS",
+                  "JavaScript",
+                  "PHP",
+                  "Next.js",
+                  "TypeScript",
+                  "Tailwind CSS",
+                ],
+              },
+              {
+                title: "MOBILE DEVELOPMENT",
+                skills: [
+                  "Flutter",
+                  "Dart",
+                  "Android",
+                  "SQLite",
+                  "Material 3",
+                ],
+              },
+              {
+                title: "DATABASE & BACKEND",
+                skills: [
+                  "MySQL",
+                  "PostgreSQL",
+                  "Prisma",
+                  "Neon",
+                  "SQLite",
+                  "CRUD",
+                  "Authentication",
+                ],
+              },
+              {
+                title: "DESKTOP & TOOLS",
+                skills: [
+                  "Python",
+                  "CustomTkinter",
+                  "Git",
+                  "GitHub",
+                  "VS Code",
+                ],
+              },
+              {
+                title: "DESIGN & MULTIMEDIA",
+                skills: [
+                  "Canva",
+                  "Figma",
+                  "CapCut",
+                  "Blender",
+                  "UI / UX",
+                  "3D Modeling",
+                ],
+              },
+            ].map((group, index, skillGroups) => (
               <Reveal
                 key={group.title}
-                delay={index * 70}
+                delay={index * 40}
                 className={
                   index === skillGroups.length - 1
                     ? "md:col-span-2"
@@ -2838,7 +2915,7 @@ export default function Home() {
               {timeline.map((item, index) => (
                 <Reveal
                   key={`${item.year}-${item.title}`}
-                  delay={index * 80}
+                  delay={index * 50}
                 >
                   <div
                     className={`timeline-item grid gap-5 border-b py-8 sm:grid-cols-[140px_1fr] ${border}`}
@@ -2903,7 +2980,7 @@ export default function Home() {
             <Reveal>
               <div className="mx-auto w-full max-w-[420px] lg:mx-0">
                 <div
-                  className={`about-frame group relative aspect-[3/4] overflow-hidden rounded-[30px] border p-2 backdrop-blur-2xl transition-transform duration-500 hover:-translate-y-2 ${glass}`}
+                  className={`about-frame group relative aspect-[3/4] overflow-hidden rounded-[30px] border p-2 backdrop-blur-2xl transition-transform duration-180 hover:-translate-y-1 ${glass}`}
                 >
                   <div className="relative h-full w-full overflow-hidden rounded-[23px] bg-neutral-900">
                     {!photoError ? (
@@ -2954,7 +3031,7 @@ export default function Home() {
               </div>
             </Reveal>
 
-            <Reveal delay={120}>
+            <Reveal delay={60}>
               <div>
                 <div
                   className={`mb-5 text-[9px] font-bold tracking-[0.2em] ${muted}`}
@@ -3028,7 +3105,7 @@ export default function Home() {
                     className={`about-stat border-r px-4 py-6 ${border}`}
                   >
                     <div className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-none tracking-[-0.06em]">
-                      06
+                      {String(projects.length).padStart(2, "0")}
                     </div>
 
                     <div
@@ -3169,7 +3246,7 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <Reveal delay={100}>
+          <Reveal delay={50}>
             <div className="py-20">
               <div
                 className={`mb-7 text-[9px] font-semibold tracking-[0.2em] ${muted}`}
@@ -3189,11 +3266,11 @@ export default function Home() {
                   href="mailto:aldiansyh421@gmail.com"
                   className={`email-button ${
                     darkMode ? "dark-email" : ""
-                  } group inline-flex w-fit items-center gap-3 rounded-full px-6 py-3.5 text-[10px] font-bold tracking-[0.15em] hover:-translate-y-1`}
+                  } group inline-flex w-fit items-center gap-3 rounded-full px-6 py-3.5 text-[10px] font-bold tracking-[0.15em] hover:-translate-y-0.5`}
                 >
                   EMAIL
 
-                  <span className="transition-transform duration-200 group-hover:translate-x-1">
+                  <span className="transition-transform duration-100 group-hover:translate-x-1">
                     <ArrowIcon />
                   </span>
                 </a>
@@ -3203,11 +3280,11 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Open Instagram profile"
-                  className={`group inline-flex w-fit items-center gap-3 rounded-full border px-6 py-3.5 text-[10px] font-bold tracking-[0.15em] backdrop-blur-xl transition-[background-color,border-color,transform] duration-200 hover:-translate-y-1 ${glass} ${glassHover}`}
+                  className={`group inline-flex w-fit items-center gap-3 rounded-full border px-6 py-3.5 text-[10px] font-bold tracking-[0.15em] backdrop-blur-xl transition-[background-color,border-color,transform] duration-120 hover:-translate-y-0.5 ${glass} ${glassHover}`}
                 >
                   INSTAGRAM
 
-                  <span className="transition-transform duration-200 group-hover:translate-x-1">
+                  <span className="transition-transform duration-100 group-hover:translate-x-1">
                     <ExternalIcon />
                   </span>
                 </a>
@@ -3217,11 +3294,11 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Open Aldi Aldiansyah GitHub profile"
-                  className={`group inline-flex w-fit items-center gap-3 rounded-full border px-6 py-3.5 text-[10px] font-bold tracking-[0.15em] backdrop-blur-xl transition-[background-color,border-color,transform] duration-200 hover:-translate-y-1 ${glass} ${glassHover}`}
+                  className={`group inline-flex w-fit items-center gap-3 rounded-full border px-6 py-3.5 text-[10px] font-bold tracking-[0.15em] backdrop-blur-xl transition-[background-color,border-color,transform] duration-120 hover:-translate-y-0.5 ${glass} ${glassHover}`}
                 >
                   GITHUB — ALDI421
 
-                  <span className="transition-transform duration-200 group-hover:translate-x-1">
+                  <span className="transition-transform duration-100 group-hover:translate-x-1">
                     <ExternalIcon />
                   </span>
                 </a>
@@ -3238,13 +3315,30 @@ export default function Home() {
       <footer
         className={`border-t px-5 py-8 sm:px-8 lg:px-12 ${border}`}
       >
-        <div className="mx-auto flex max-w-[1380px] flex-col gap-4 text-[9px] font-medium tracking-[0.16em] sm:flex-row sm:items-center sm:justify-between">
+        <div className="mx-auto flex max-w-[1380px] flex-col gap-6 text-[9px] font-medium tracking-[0.16em] sm:flex-row sm:items-center sm:justify-between">
           <div className={muted}>
             © 2026 ALDEV — ALDI ALDIANSYAH
           </div>
 
-          <div className={muted}>
-            DESIGNED & BUILT WITH CODE
+          <div className="flex items-center gap-5">
+            <a
+              href="/admin"
+              className={`group inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-[8px] font-bold tracking-[0.16em] backdrop-blur-xl transition-[background-color,border-color,transform,box-shadow] duration-120 hover:-translate-y-0.5 ${
+                darkMode
+                  ? "border-white/10 bg-white/[0.035] text-white/55 hover:border-white/20 hover:bg-white/[0.07] hover:text-white"
+                  : "border-black/10 bg-black/[0.025] text-black/50 hover:border-black/20 hover:bg-black/[0.05] hover:text-black"
+              }`}
+            >
+              ADMIN
+
+              <span className="transition-transform duration-100 group-hover:translate-x-0.5">
+                <ArrowIcon />
+              </span>
+            </a>
+
+            <div className={muted}>
+              DESIGNED & BUILT WITH CODE
+            </div>
           </div>
         </div>
       </footer>
