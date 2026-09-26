@@ -73,11 +73,6 @@ export async function PUT(
     );
   }
 
-  // kode PUT kamu yang sekarang...
-  export async function PUT(
-  request: Request,
-  context: RouteContext
-) {
   try {
     const { id } = await context.params;
     const projectId = Number(id);
@@ -165,23 +160,6 @@ export async function PUT(
 }
 
 export async function DELETE(
-  request: Request,
-  context: RouteContext
-) {
-  const admin = await getAuthenticatedAdmin();
-
-  if (!admin) {
-    return NextResponse.json(
-      {
-        success: false,
-        error: "Unauthorized",
-      },
-      { status: 401 }
-    );
-  }
-
-  // kode DELETE kamu yang sekarang...
-  export async function DELETE(
   request: Request,
   context: RouteContext
 ) {
