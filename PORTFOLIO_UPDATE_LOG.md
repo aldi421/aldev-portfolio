@@ -1,128 +1,99 @@
-# ALDEV Portfolio — Update Log
+# ALDEV — PORTFOLIO UPDATE LOG
 
-> Catatan perubahan, progres, dan checklist agar pengembangan portofolio tidak membingungkan.
+**Website:** https://aldev-portfolio-two.vercel.app/
 
-## 1. Informasi Project
+**Folder:** `C:\Users\Aldi\Documents\PROJECT Kelas XII\portofolio-aldi`
 
-- **Portfolio:** ALDEV
-- **Framework:** Next.js
-- **Repository lokal:** `C:\Users\Aldi\Documents\PROJECT Kelas XII\portofolio-aldi`
-- **Website:** https://aldev-portfolio-two.vercel.app/
-- **Tujuan catatan:** Mendokumentasikan perubahan project, screenshot, deskripsi, deployment, dan riwayat Git.
+## 1. Riwayat Update
 
----
+### 15 Oktober 2026
+- **SmartDisk PRO V2:** deskripsi dan screenshot diperbarui.
+- **LENTERA:** tipe project diperbaiki menjadi `web`.
+- **Foto profil:** `aldi.jpg` diperbarui.
 
-## 2. Riwayat Update
+## 2. Paket Lengkap — Cek dan Push Update
 
-### 15 Oktober 2026 — SmartDisk PRO V2
+Salin seluruh blok PowerShell di bawah, lalu paste ke terminal PowerShell.
 
-**Status:** Perubahan konten telah dilakukan melalui dashboard admin.
-
-Perubahan:
-- Memperbarui informasi dan deskripsi SmartDisk PRO V2.
-- Mengganti screenshot project dengan screenshot versi terbaru.
-- Memperbarui informasi bahwa aplikasi memiliki UI/UX lebih modern dan profesional.
-- Menambahkan informasi bahwa aplikasi desktop sudah dikemas dalam format `.exe`.
-- Memperbarui informasi teknologi: Python, CustomTkinter, PyInstaller, Git, dan GitHub.
-
-**Checklist verifikasi:**
-- [x] Informasi project diperbarui di dashboard admin.
-- [x] Screenshot terbaru diganti.
-- [ ] Pastikan project tampil di website publik.
-- [ ] Pastikan screenshot terlihat jelas di website publik.
-- [ ] Pastikan deskripsi dan teknologi sudah sesuai.
-- [ ] Periksa status Git repository portofolio.
-- [ ] Pastikan perubahan sudah tersimpan dan ter-deploy.
-
-### 15 Oktober 2026 — LENTERA
-
-**Status:** Perbaikan tipe project telah dilakukan.
-
-Perubahan:
-- Mengubah tipe project dari `Web` menjadi `web` melalui dashboard admin.
-- API sebelumnya sudah menampilkan data LENTERA.
-- Screenshot `/images/projects/bookstore/screenshot.jpg` sudah dapat diakses.
-- Perubahan tipe dilakukan agar sesuai dengan format tipe project yang digunakan di halaman utama.
-
-**Checklist verifikasi:**
-- [x] Tipe project disesuaikan.
-- [x] LENTERA sudah muncul di website.
-- [x] Screenshot project sudah tampil.
-
----
-
-## 3. SOP Update Project Baru
-
-Setiap kali menambahkan atau memperbarui project:
-
-1. Siapkan screenshot terbaru dan simpan dengan nama file yang jelas.
-2. Perbarui nama, kategori, deskripsi, teknologi, link demo, dan informasi project.
-3. Periksa apakah project muncul di website publik.
-4. Periksa screenshot, tombol demo, kategori, dan detail project.
-5. Catat perubahan baru di bagian Riwayat Update.
-6. Periksa perubahan kode menggunakan Git sebelum melakukan commit.
-
-### Perintah Git untuk memeriksa perubahan
-
-Jalankan di PowerShell:
+**Fungsi:** memeriksa perubahan, menampilkan daftar file, meminta konfirmasi sebelum commit, lalu push ke GitHub.
 
 ```powershell
-cd "C:\Users\Aldi\Documents\PROJECT Kelas XII\portofolio-aldi"
+$ErrorActionPreference = "Stop"
+Set-Location "C:\Users\Aldi\Documents\PROJECT Kelas XII\portofolio-aldi"
 
-git status
-git diff
+Write-Host "`n===== ALDEV UPDATE MANAGER =====" -ForegroundColor Cyan
+
+Write-Host "`n[1] STATUS GIT"
+git status -sb
+
+Write-Host "`n[2] FILE BERUBAH"
+git status --short
+
+Write-Host "`n[3] SINKRONISASI REMOTE"
+git fetch origin
+git status -sb
+
+Write-Host "`n[4] PERIKSA PERUBAHAN"
+git diff --stat
+git diff --cached --stat
+git ls-files --others --exclude-standard
+
+Write-Host "`n[5] PILIH TINDAKAN" -ForegroundColor Yellow
+Write-Host "1. Cek saja, tidak mengubah file"
+Write-Host "2. Commit dan push semua perubahan"
+$pilihan = Read-Host "Pilih 1 atau 2"
+
+if ($pilihan -eq "1") {
+    Write-Host "`nPemeriksaan selesai. Tidak ada perubahan yang diunggah." -ForegroundColor Green
+}
+elseif ($pilihan -eq "2") {
+    Write-Host "`nPERIKSA DAFTAR FILE DI ATAS SEBELUM MELANJUTKAN."
+    $konfirmasi = Read-Host "Ketik PUSH untuk melanjutkan"
+
+    if ($konfirmasi -ceq "PUSH") {
+        git add .
+        git diff --cached --stat
+
+        $pesan = Read-Host "Pesan commit (Enter untuk pesan default)"
+        if ([string]::IsNullOrWhiteSpace($pesan)) {
+            $pesan = "update: portfolio content and assets"
+        }
+
+        git commit -m $pesan
+
+        if ($LASTEXITCODE -eq 0) {
+            git push origin main
+            if ($LASTEXITCODE -eq 0) {
+                Write-Host "`nPush berhasil. Periksa deployment Vercel." -ForegroundColor Green
+            }
+        }
+        else {
+            Write-Host "`nCommit tidak berhasil. Periksa status Git." -ForegroundColor Red
+        }
+    }
+    else {
+        Write-Host "`nDibatalkan. Tidak ada push." -ForegroundColor Yellow
+    }
+}
+else {
+    Write-Host "`nPilihan tidak valid." -ForegroundColor Red
+}
+
+Write-Host "`n===== SELESAI =====" -ForegroundColor Cyan
 ```
 
-Jika perubahan kode sudah siap dan memang ingin diunggah:
+## 3. Setelah Push
 
-```powershell
-git add .
-git commit -m "update: portfolio project content"
-git push origin main
-```
+1. Buka dashboard Vercel dan pastikan deployment terbaru berstatus `Ready`.
+2. Buka website ALDEV dan tekan `Ctrl + F5`.
+3. Pastikan perubahan sudah tampil.
 
-Jika tidak ada perubahan kode karena update hanya dilakukan melalui dashboard admin, tidak perlu membuat commit kosong. Periksa terlebih dahulu apakah perubahan sudah tersimpan di database dan tampil di website.
+**Catatan:** paket ini mengunggah perubahan repository Git, bukan otomatis mengubah database yang dikelola dashboard admin. Periksa file yang akan diunggah sebelum mengetik `PUSH`.
 
-**Catatan:** Perintah Git di atas mengunggah perubahan repository. Jangan menganggapnya sebagai bukti bahwa perubahan database sudah tersimpan atau website sudah ter-deploy.
-
----
-
-## 4. Format Catatan Update Berikutnya
-
-Salin format ini setiap kali ada perubahan baru:
+## 4. Template Riwayat Update
 
 ### [Tanggal] — [Nama Project]
-
-**Jenis perubahan:**
-- 
-
-**File atau bagian yang diubah:**
-- 
-
-**Screenshot:**
-- [ ] Tidak berubah
-- [ ] Diperbarui
-
-**Status:**
-- [ ] Perubahan tersimpan
-- [ ] Sudah diuji di website
-- [ ] Sudah di-push jika ada perubahan repository
-- [ ] Sudah diverifikasi setelah deployment
-
-**Catatan kendala:**
-- 
-
-**Langkah berikutnya:**
-- 
-
----
-
-## 5. Aturan Penting
-
-- Jangan mengubah database atau kode sebelum penyebab masalah diketahui.
-- Jangan mengganti nama file screenshot tanpa menyesuaikan path yang digunakan.
-- Jangan menimpa perubahan yang belum di-commit tanpa memeriksa `git status`.
-- Jangan mencatat deployment sebagai selesai sebelum memeriksa website publik.
-- Setiap perubahan harus mencatat apa yang diubah, mengapa, dan bagaimana hasilnya.
-
-**Prinsip ALDEV:** Catat perubahan, uji hasilnya, lalu verifikasi sebelum menyatakan selesai.
+- Perubahan:
+- File/aset:
+- Status website:
+- Catatan:
